@@ -1,0 +1,12 @@
+{
+  "task": "R57-T019",
+  "page": "16 - Mouse Move Shadow/index-START.html",
+  "examined_region": ".hero h1",
+  "baseline_observations": [
+    "index-START.html had an empty <script> block and fixed font-size: 100px on h1.",
+    "Fixed font-size caused severe horizontal overflowing on narrow viewports (e.g. 360px mobile).",
+    "No prefers-reduced-motion media query or JavaScript motion gate was present; rapid pointer movements caused intense multi-colored shadow flashing without accommodating users with vestibular disorders.",
+    "The contenteditable h1 lacked an accessible, high-contrast focus outline for keyboard navigation."
+  ],
+  "decision": "Implement the mousemove shadow calculation with prefers-reduced-motion detection in both CSS and JavaScript. Add responsive typography (clamp) and explicit high-contrast focus styling (:focus-visible) to keep controls usable and visible across 360px and 1280px viewports."
+}
