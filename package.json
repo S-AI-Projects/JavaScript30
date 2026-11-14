@@ -1,0 +1,20 @@
+{
+  "name": "javascript30",
+  "version": "1.0.0",
+  "description": "JavaScript30 30 Day Vanilla JS Coding Challenge",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node tests/course/r57-t014.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/monster2005mac-dex/JavaScript30.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "playwright": "^1.50.1"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "task": "R57-T014",
+  "page": "03 - CSS Variables/index-START.html",
+  "examined_controls": ["#spacing", "#blur", "#base"],
+  "baseline_observations": [
+    "index-START.html lacks the :root CSS variable definitions (--base, --spacing, --blur) and variable bindings on img.",
+    "No cleanup or idempotent lifecycle management existed; re-attaching event listeners to inputs across re-initializations leads to duplicate listener invocation.",
+    "There was no exposed teardown/cleanup interface to unbind listeners or verify zero leftover test-created listeners."
+  ],
+  "decision": "Add the CSS variable definitions and bindings to index-START.html. Implement an idempotent initCSSVariables() and cleanupCSSVariables() lifecycle using AbortController { signal } so repeated initializations never duplicate listeners, and cleanup leaves zero active listeners."
+}
