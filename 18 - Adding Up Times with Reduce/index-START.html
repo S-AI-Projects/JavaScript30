@@ -4,8 +4,60 @@
   <meta charset="UTF-8">
   <title>Videos</title>
   <link rel="icon" href="https://fav.farm/🔥" />
+  <style>
+    .companion-app {
+      position: sticky;
+      top: 10px;
+      background: #222;
+      color: #fff;
+      padding: 15px 25px;
+      margin: 20px auto;
+      max-width: 600px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      font-family: sans-serif;
+      z-index: 100;
+    }
+    .total-badge {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #ffc600;
+      margin-bottom: 12px;
+    }
+    .companion-form {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .companion-form input {
+      padding: 8px 12px;
+      border: 1px solid #444;
+      border-radius: 4px;
+      background: #333;
+      color: #fff;
+    }
+    .companion-form button {
+      padding: 8px 16px;
+      background: #ffc600;
+      color: #000;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
+  <section class="companion-app" aria-label="Video Duration Summary and Addition">
+    <div id="total-time-display" class="total-badge">Total Duration: Calculating...</div>
+    <form id="custom-video-form" class="companion-form">
+      <input type="text" id="video-title-input" placeholder="Custom Video Title" required />
+      <input type="text" id="video-time-input" placeholder="mm:ss" pattern="[0-9]+:[0-9]{2}" value="03:00" required />
+      <button type="submit" id="add-video-btn">+ Add Video</button>
+    </form>
+  </section>
   <ul class="videos">
     <li data-time="5:43">
       Video 1
@@ -183,6 +235,64 @@
     </li>
   </ul>
 <script>
+  function calculateTotalSeconds() {
+    const timeNodes = Array.from(document.querySelectorAll('.videos li[data-time]'));
+    const seconds = timeNodes
+      .map(node => node.dataset.time)
+      .map(timeCode => {
+        const parts = timeCode.split(':').map(parseFloat);
+        if (parts.length === 2) {
+          return (parts[0] * 60) + parts[1];
+        } else if (parts.length === 3) {
+          return (parts[0] * 3600) + (parts[1] * 60) + parts[2];
+        }
+        return 0;
+      })
+      .reduce((total, vidSeconds) => total + vidSeconds, 0);
+
+    let secondsLeft = seconds;
+    const hours = Math.floor(secondsLeft / 3600);
+    secondsLeft = secondsLeft % 3600;
+
+    const mins = Math.floor(secondsLeft / 60);
+    secondsLeft = secondsLeft % 60;
+
+    return { hours, mins, secondsLeft, totalSeconds: seconds };
+  }
+
+  function updateTotalDisplay() {
+    const { hours, mins, secondsLeft } = calculateTotalSeconds();
+    const display = document.getElementById('total-time-display');
+    if (display) {
+      display.textContent = `Total Duration: ${hours}:${mins.toString().padStart(2, '0')}:${secondsLeft.toString().padStart(2, '0')}`;
+    }
+  }
+
+  updateTotalDisplay();
+
+  const form = document.getElementById('custom-video-form');
+  const titleInput = document.getElementById('video-title-input');
+  const timeInput = document.getElementById('video-time-input');
+  const videosList = document.querySelector('.videos');
+
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const title = titleInput.value.trim();
+      const time = timeInput.value.trim() || '00:00';
+      if (!title) return;
+
+      const li = document.createElement('li');
+      li.dataset.time = time;
+      li.dataset.custom = 'true';
+      // Safe text rendering: assign strictly via textContent to treat any tags/markup as literal text
+      li.textContent = `${title} (${time})`;
+      videosList.appendChild(li);
+
+      titleInput.value = '';
+      updateTotalDisplay();
+    });
+  }
 </script>
 </body>
 </html>
