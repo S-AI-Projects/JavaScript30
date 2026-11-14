@@ -1,0 +1,83 @@
+{
+  "task": "R57-T011",
+  "page": "http://127.0.0.1:8765/17%20-%20Sort%20Without%20Articles/index-START.html",
+  "browser": "Chromium",
+  "checks": [
+    {
+      "name": "Page responds with HTTP 200",
+      "expected": 200,
+      "actual": 200,
+      "passed": true
+    },
+    {
+      "name": "Skip-to-content link exists",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "#bands container exists",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "No positive tabindex elements exist",
+      "expected": 0,
+      "actual": 0,
+      "passed": true
+    },
+    {
+      "name": "Skip link starts positioned off-screen",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "Tab key navigates focus to skip link",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "Skip link becomes visible when focused",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "Skip link has visible outline when focused",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "Enter key activates skip link navigating to #bands",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "#bands renders 13 sorted items",
+      "expected": 13,
+      "actual": 13,
+      "passed": true
+    },
+    {
+      "name": "First sorted band is correct (ignoring articles)",
+      "expected": "Anywhere But Here",
+      "actual": "Anywhere But Here",
+      "passed": true
+    },
+    {
+      "name": "No unhandled JavaScript errors",
+      "expected": 0,
+      "actual": 0,
+      "passed": true
+    }
+  ],
+  "summary": {
+    "passed": 12,
+    "total": 12
+  }
+}
