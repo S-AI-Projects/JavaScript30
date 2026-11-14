@@ -7,26 +7,38 @@ body {
   background: #4C4C4C url('https://unsplash.it/1500/900?image=1021');
   background-size: cover;
   font-family: sans-serif;
+  box-sizing: border-box;
 }
 
 .wrapper {
-  width: 850px;
+  width: 95%;
+  max-width: 850px;
   display: flex;
+  box-sizing: border-box;
+  margin: 10px auto;
+  align-items: center;
 }
 
 video {
+  width: calc(100% - 60px);
+  max-width: 100%;
+  height: auto;
   box-shadow: 0 0 1px 3px rgba(0,0,0,0.1);
+  display: block;
 }
 
 .speed {
   background: #efefef;
-  flex: 1;
+  flex: 0 0 45px;
+  width: 45px;
   display: flex;
   align-items: flex-start;
-  margin: 10px;
+  margin: 10px 0 10px 15px;
   border-radius: 50px;
   box-shadow: 0 0 1px 3px rgba(0,0,0,0.1);
   overflow: hidden;
+  align-self: stretch;
+  min-height: 150px;
 }
 
 .speed-bar {
@@ -39,4 +51,5 @@ video {
   padding: 2px;
   color: white;
   height: 16.3%;
+  box-sizing: border-box;
 }

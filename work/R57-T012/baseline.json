@@ -1,0 +1,27 @@
+{
+  "task": "R57-T012",
+  "page": "28 - Video Speed Controller/index-START.html",
+  "examined_viewports": [
+    {
+      "width": 360,
+      "height": 800,
+      "baseline_status": "FAIL_OVERFLOW",
+      "measured_scroll_width": 850,
+      "overflow_pixels": 490,
+      "issues": [
+        "Fixed width: 850px on .wrapper exceeds 360px viewport width.",
+        "Fixed width: 765px attribute on <video> prevents responsive scaling.",
+        "Horizontal scrollbar appears; speed controller bar is clipped off-screen."
+      ]
+    },
+    {
+      "width": 1280,
+      "height": 800,
+      "baseline_status": "PASS",
+      "measured_scroll_width": 1280,
+      "overflow_pixels": 0,
+      "issues": []
+    }
+  ],
+  "decision": "Update 28 - Video Speed Controller/style.css to make .wrapper fluid with max-width: 850px, make video scale to 100% of available space with height: auto, and preserve the side-by-side speed bar so both 360px and 1280px widths render without horizontal overflow or clipped controls."
+}

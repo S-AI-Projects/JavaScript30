@@ -1,0 +1,87 @@
+{
+  "task": "R57-T012",
+  "page": "http://127.0.0.1:8766/28%20-%20Video%20Speed%20Controller/index-START.html",
+  "browser": "Chromium",
+  "viewports_tested": [
+    "1280x800",
+    "360x800"
+  ],
+  "checks": [
+    {
+      "name": "Desktop (1280px) page responds with HTTP 200",
+      "expected": 200,
+      "actual": 200,
+      "passed": true
+    },
+    {
+      "name": "Desktop: No horizontal overflow (scrollWidth <= 1280)",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "Desktop: Video is rendered and visible",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "Desktop: Speed bar is rendered and visible",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "Desktop: Speed bar not clipped off-screen",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "Mobile (360px): No horizontal overflow (scrollWidth <= 360)",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "Mobile (360px): Wrapper fits within viewport (wrapperRight <= 360)",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "Mobile (360px): Video fits within viewport (videoRight <= 360)",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "Mobile (360px): Speed bar remains visible and on-screen (speedRight <= 360)",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "Mobile (360px): Both controls have non-zero dimensions",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "Speed scrubber updates playback rate text on mousemove",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "No unhandled page errors",
+      "expected": 0,
+      "actual": 0,
+      "passed": true
+    }
+  ],
+  "summary": {
+    "passed": 12,
+    "total": 12
+  }
+}
