@@ -1,0 +1,21 @@
+{
+  "task": "R57-T020",
+  "status": "PASSED",
+  "timestamp": "2026-11-14T09:44:47.199Z",
+  "correct_application_checks": [
+    "Page returns HTTP 200",
+    "Dropdown background is initially closed (opacity 0, no open class)",
+    "Hovering nav item sets trigger-enter-active and opens background",
+    "Dynamic bounding coordinates accurately calculate width, height, and translate offsets",
+    "Moving mouse out cleanly closes dropdown background",
+    "Keyboard focusin opens dropdown for accessibility",
+    "Zero console/page errors logged"
+  ],
+  "regression_mutation_verification": {
+    "mutation_description": "Omitted mouseleave event listener on triggers, leaving dropdown background stuck open",
+    "defect_detected": true,
+    "distinguished_broken_and_correct_states": true
+  },
+  "assertions_passed": 8,
+  "assertions_failed": 0
+}

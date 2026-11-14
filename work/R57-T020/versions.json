@@ -1,0 +1,7 @@
+{
+  "node": "v20.18.0",
+  "playwright": "1.52.0",
+  "chromium": "1255",
+  "platform": "darwin-arm64",
+  "task": "R57-T020"
+}

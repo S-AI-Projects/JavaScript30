@@ -1,0 +1,8 @@
+{
+  "name": "javascript30-r57-t020",
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "test": "node tests/course/r57-t020.mjs"
+  }
+}
