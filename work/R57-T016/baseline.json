@@ -1,0 +1,11 @@
+{
+  "task": "R57-T016",
+  "page": "27 - Click and Drag/index-START.html",
+  "examined_elements": [".items", ".item"],
+  "baseline_observations": [
+    "index-START.html has an empty <script> block and does not implement the click-and-drag interaction.",
+    "The page has no feature-detection or fallback mechanism for environments or assistive devices where mouse dragging is unsupported or disabled.",
+    "There were no explicit fallback controls (such as step buttons or status banners) to allow accessible navigation when drag events are unavailable."
+  ],
+  "decision": "Implement the click-and-drag interaction in index-START.html. Add accessible scroll fallback controls (prev/next buttons) and a feature-status fallback banner that explicitly communicates when mouse dragging is unsupported, testing both feature-present (drag mousemove) and feature-absent (unsupported stub with button fallback) paths."
+}

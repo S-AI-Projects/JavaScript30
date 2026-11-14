@@ -5,9 +5,69 @@
   <title>Click and Drag</title>
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="https://fav.farm/🔥" />
+  <style>
+    .controls-wrapper {
+      position: fixed;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      z-index: 1000;
+    }
+    .nav-controls {
+      display: flex;
+      gap: 12px;
+    }
+    .nav-btn {
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      border-radius: 6px;
+      padding: 8px 16px;
+      font-size: 15px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      font-weight: bold;
+      color: #333;
+    }
+    .nav-btn:focus-visible {
+      outline: 3px solid #ffc600;
+      outline-offset: 2px;
+    }
+    .fallback-banner {
+      display: none;
+      background: #1e1e1e;
+      color: #ffc600;
+      padding: 8px 16px;
+      border-radius: 6px;
+      font-size: 14px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+    .fallback-banner.visible {
+      display: block;
+    }
+    @supports not (user-select: none) {
+      .items {
+        user-select: auto;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="items">
+
+  <div class="controls-wrapper">
+    <div id="fallback-banner" class="fallback-banner" role="status">
+      Drag interaction disabled or unsupported. Use arrow buttons to scroll.
+    </div>
+    <div class="nav-controls">
+      <button class="nav-btn prev-btn" aria-label="Scroll left">&larr; Previous</button>
+      <button class="nav-btn next-btn" aria-label="Scroll right">Next &rarr;</button>
+    </div>
+  </div>
+
+  <div class="items" tabindex="0" role="region" aria-label="Gallery of numbered items">
     <div class="item item1">01</div>
     <div class="item item2">02</div>
     <div class="item item3">03</div>
@@ -36,7 +96,60 @@
   </div>
 
 <script>
+  const slider = document.querySelector('.items');
+  const prevBtn = document.querySelector('.prev-btn');
+  const nextBtn = document.querySelector('.next-btn');
+  const banner = document.getElementById('fallback-banner');
+
+  const isDragSupported = !window.__FORCE_DRAG_UNSUPPORTED__;
+
+  if (!isDragSupported && banner) {
+    banner.classList.add('visible');
+  }
+
+  let isDown = false;
+  let startX;
+  let scrollLeft;
+
+  if (isDragSupported) {
+    slider.addEventListener('mousedown', (e) => {
+      isDown = true;
+      slider.classList.add('active');
+      startX = e.pageX - slider.offsetLeft;
+      scrollLeft = slider.scrollLeft;
+    });
+
+    slider.addEventListener('mouseleave', () => {
+      isDown = false;
+      slider.classList.remove('active');
+    });
+
+    slider.addEventListener('mouseup', () => {
+      isDown = false;
+      slider.classList.remove('active');
+    });
+
+    slider.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 3;
+      slider.scrollLeft = scrollLeft - walk;
+    });
+  }
+
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => {
+      slider.scrollLeft -= 250;
+    });
+  }
+
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => {
+      slider.scrollLeft += 250;
+    });
+  }
 </script>
 
-  </body>
+</body>
 </html>

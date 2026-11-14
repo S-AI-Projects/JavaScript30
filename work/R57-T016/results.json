@@ -1,0 +1,81 @@
+{
+  "task": "R57-T016",
+  "page": "http://127.0.0.1:8770/27%20-%20Click%20and%20Drag/index-START.html",
+  "browser": "Chromium",
+  "paths_tested": [
+    "Feature-Present (Mouse click-and-drag active)",
+    "Feature-Absent (Drag unsupported with accessible controls)"
+  ],
+  "checks": [
+    {
+      "name": "Feature-Present: Page loads with HTTP 200",
+      "expected": 200,
+      "actual": 200,
+      "passed": true
+    },
+    {
+      "name": "Feature-Present: Initial scrollLeft is 0",
+      "expected": 0,
+      "actual": 0,
+      "passed": true
+    },
+    {
+      "name": "Feature-Present: Fallback banner is hidden",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "Feature-Present: Mousedown adds .active class",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "Feature-Present: Dragging mouse updates scrollLeft (> 0)",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "Feature-Present: Mouseup removes .active class",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "Feature-Absent: Fallback notification banner is visible",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "Feature-Absent: Banner contains helpful fallback guidance",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "Feature-Absent: Next button scrolls items forward",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "Feature-Absent: Previous button scrolls items backward",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "No unhandled page errors across paths",
+      "expected": 0,
+      "actual": 0,
+      "passed": true
+    }
+  ],
+  "summary": {
+    "passed": 11,
+    "total": 11
+  }
+}
