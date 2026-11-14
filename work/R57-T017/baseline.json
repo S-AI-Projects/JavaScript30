@@ -1,0 +1,11 @@
+{
+  "task": "R57-T017",
+  "page": "21 - Geolocation/index-START.html",
+  "examined_region": ".arrow, .speed, .speed-value",
+  "baseline_observations": [
+    "index-START.html contains an empty <script> block and does not register navigator.geolocation.watchPosition.",
+    "Hardware and permission dependencies (GPS sensor, device compass heading) are unstubbed in default headless test environments.",
+    "There was no documented walkthrough specifying the entrypoint, local setup, and expected rotation and speed changes."
+  ],
+  "decision": "Implement the geolocation watcher logic with null-safe fallbacks in index-START.html, add a documented and executable walkthrough in README.md, and create tests/course/r57-t017.mjs to stub native geolocation permissions and coordinates in Chromium, asserting correct speed text and compass arrow transformation."
+}
