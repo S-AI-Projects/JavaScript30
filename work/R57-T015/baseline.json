@@ -1,0 +1,11 @@
+{
+  "task": "R57-T015",
+  "page": "15 - LocalStorage/index-START.html",
+  "examined_elements": ["form.add-items", "input[name=item]", "ul.plates"],
+  "baseline_observations": [
+    "index-START.html was missing localStorage retrieval and list population logic.",
+    "Without deterministic fixture initialization, browser tests suffered from state leakage or reliance on ambient browser storage.",
+    "External icon requests (https://fav.farm/) introduced potential flakiness in isolated offline test harnesses."
+  ],
+  "decision": "Implement complete client-side storage persistence in index-START.html. In tests/course/r57-t015.mjs, use explicit local storage fixtures across two fresh browser contexts to assert identical deterministic DOM state, stub external assets, and test form submission and checkbox toggling."
+}
