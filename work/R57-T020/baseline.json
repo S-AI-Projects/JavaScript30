@@ -1,0 +1,11 @@
+{
+  "task": "R57-T020",
+  "page": "26 - Stripe Follow Along Nav/index-START.html",
+  "examined_region": "nav.top .cool > li",
+  "baseline_observations": [
+    "index-START.html had an empty <script> block, so hovering over navigation items displayed no dropdown backgrounds or animations.",
+    "Without the follow-along pill calculation, the dropdownBackground remained stationary at opacity: 0.",
+    "Keyboard focus (focusin/focusout) was unhandled on nav items, leaving dropdown menus inaccessible to keyboard users."
+  ],
+  "decision": "Implement the follow-along dropdown coordinate tracking and transition animation with keyboard focus support in index-START.html. Design the regression test suite to verify the correct behavior, deliberately simulate an interaction regression (such as missing mouseleave cleanup or disconnected coordinate tracking) in a test fixture, and assert that the regression suite reliably detects the regression."
+}
