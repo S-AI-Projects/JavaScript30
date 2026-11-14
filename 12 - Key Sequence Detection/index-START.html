@@ -3,10 +3,172 @@
   <head>
     <meta charset="UTF-8" />
     <title>Key Detection</title>
-    <script type="text/javascript" src="./cornify.js"></script>
     <link rel="icon" href="https://fav.farm/🔥" />
+    <script>
+      let assetFailed = false;
+      function handleAssetError() {
+        assetFailed = true;
+        const showBanner = () => {
+          const banner = document.getElementById('fallback-banner');
+          if (banner) banner.classList.add('visible');
+        };
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', showBanner);
+        } else {
+          showBanner();
+        }
+      }
+    </script>
+    <script type="text/javascript" src="./cornify.js" onerror="handleAssetError()"></script>
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #2b2b2b;
+        color: #f0f0f0;
+        font-family: system-ui, -apple-system, sans-serif;
+      }
+      .container {
+        text-align: center;
+        padding: 30px;
+        background: #1e1e1e;
+        border-radius: 12px;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+        max-width: 500px;
+        width: 90%;
+      }
+      h1 {
+        margin-top: 0;
+        font-size: 1.8rem;
+      }
+      .status-box {
+        margin: 20px 0;
+        padding: 15px;
+        background: #2d2d2d;
+        border-radius: 8px;
+        font-size: 1.1rem;
+        min-height: 24px;
+      }
+      .status-empty {
+        color: #aaa;
+      }
+      .status-success {
+        color: #4ade80;
+        font-weight: bold;
+      }
+      .status-error {
+        color: #f87171;
+      }
+      .key-buffer {
+        display: flex;
+        gap: 8px;
+        justify-content: center;
+        margin-top: 15px;
+        min-height: 42px;
+      }
+      .key-slot {
+        width: 36px;
+        height: 36px;
+        border: 2px dashed #555;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        font-family: monospace;
+      }
+      .key-slot.filled {
+        border-style: solid;
+        border-color: #ffc600;
+        background: #333;
+        color: #ffc600;
+      }
+      .fallback-banner {
+        display: none;
+        margin-top: 15px;
+        padding: 10px;
+        background: #7c2d12;
+        color: #fed7aa;
+        border-radius: 6px;
+        font-size: 0.9rem;
+      }
+      .fallback-banner.visible {
+        display: block;
+      }
+      .fallback-sparkle {
+        font-size: 2rem;
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        animation: pulse 0.5s infinite alternate;
+      }
+      @keyframes pulse {
+        from { transform: scale(1); }
+        to { transform: scale(1.2); }
+      }
+    </style>
   </head>
   <body>
-    <script></script>
+    <main class="container">
+      <h1>Key Sequence Detection</h1>
+      <div id="status" class="status-box status-empty" role="status">
+        Awaiting input... (Type secret code)
+      </div>
+      <div id="buffer" class="key-buffer" aria-label="Typed sequence buffer"></div>
+      <div id="fallback-banner" class="fallback-banner" role="alert">
+        Celebration script failed to load. Fallback visual effect enabled! ✨
+      </div>
+    </main>
+
+    <script>
+      const pressed = [];
+      const secretCode = 'wesbos';
+      const statusEl = document.getElementById('status');
+      const bufferEl = document.getElementById('buffer');
+      const bannerEl = document.getElementById('fallback-banner');
+
+      function updateBufferDisplay() {
+        bufferEl.innerHTML = '';
+        for (let i = 0; i < secretCode.length; i++) {
+          const slot = document.createElement('div');
+          slot.className = 'key-slot' + (pressed[i] ? ' filled' : '');
+          slot.textContent = pressed[i] || '';
+          bufferEl.appendChild(slot);
+        }
+      }
+      updateBufferDisplay();
+
+      window.addEventListener('keyup', (e) => {
+        pressed.push(e.key);
+        pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+        updateBufferDisplay();
+
+        if (pressed.join('').includes(secretCode)) {
+          statusEl.textContent = 'DING DING! Secret code detected! 🎉';
+          statusEl.className = 'status-box status-success';
+
+          if (typeof cornify_add === 'function') {
+            cornify_add();
+          } else {
+            if (bannerEl) bannerEl.classList.add('visible');
+            triggerFallbackCelebration();
+          }
+        } else {
+          statusEl.textContent = `Tracking keys... (${pressed.length}/${secretCode.length})`;
+          statusEl.className = 'status-box';
+        }
+      });
+
+      function triggerFallbackCelebration() {
+        const sparkle = document.createElement('div');
+        sparkle.className = 'fallback-sparkle';
+        sparkle.textContent = '🦄 ✨ 🌈';
+        document.body.appendChild(sparkle);
+        setTimeout(() => sparkle.remove(), 2000);
+      }
+    </script>
   </body>
 </html>

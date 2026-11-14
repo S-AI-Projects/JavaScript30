@@ -1,0 +1,11 @@
+{
+  "task": "R57-T013",
+  "page": "12 - Key Sequence Detection/index-START.html",
+  "baseline_observations": [
+    "The page has no rendered content in <body> and renders as a completely blank screen.",
+    "There is no empty state indicating that the application is waiting for keyboard input or what sequence length is expected.",
+    "If the external script cornify.js fails to load or is blocked, attempting to trigger cornify_add() throws an uncaught ReferenceError.",
+    "There is no readable fallback or error banner displayed when assets fail to load or when input is empty/reset."
+  ],
+  "decision": "Introduce a main content region with an initial empty-state message ('Awaiting input...'), a key sequence visual buffer display, an asset failure fallback notification banner when cornify.js is unavailable, and safe execution that prevents uncaught runtime errors while maintaining full recovery upon typing the secret code."
+}
