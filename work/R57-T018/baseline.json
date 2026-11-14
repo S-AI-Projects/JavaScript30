@@ -1,0 +1,11 @@
+{
+  "task": "R57-T018",
+  "page": "18 - Adding Up Times with Reduce/index-START.html",
+  "examined_region": "ul.videos",
+  "baseline_observations": [
+    "index-START.html has an empty <script> block and only static list items.",
+    "The total time calculation was logged only to console without rendered DOM representation.",
+    "The page lacked text inputs or dynamic text insertion surfaces, providing no safe text rendering companion for user/fixture input."
+  ],
+  "decision": "Implement the total time calculation with a rendered DOM summary banner. Add an isolated companion form to allow custom video title entries using strict textContent assignment, ensuring that strings containing HTML or script tags render purely as literal text without element injection or handler execution."
+}
