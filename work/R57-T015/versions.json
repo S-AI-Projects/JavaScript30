@@ -1,0 +1,7 @@
+{
+  "node": "v26.9.0",
+  "npm": "11.19.1",
+  "python": "Python 3.14.7",
+  "playwright": "^1.50.1",
+  "browser": "Chromium"
+}

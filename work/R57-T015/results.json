@@ -1,0 +1,77 @@
+{
+  "task": "R57-T015",
+  "page": "http://127.0.0.1:8769/15%20-%20LocalStorage/index-START.html",
+  "browser": "Chromium",
+  "checks": [
+    {
+      "name": "Context 1: Page responds with HTTP 200",
+      "expected": 200,
+      "actual": 200,
+      "passed": true
+    },
+    {
+      "name": "Context 1: Renders 2 fixture items",
+      "expected": 2,
+      "actual": 2,
+      "passed": true
+    },
+    {
+      "name": "Context 1: Item 0 is checked (Fish Tacos)",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "Context 1: Item 1 is unchecked (Quesadilla)",
+      "expected": false,
+      "actual": false,
+      "passed": true
+    },
+    {
+      "name": "Context 2: Page responds with HTTP 200",
+      "expected": 200,
+      "actual": 200,
+      "passed": true
+    },
+    {
+      "name": "Two fresh browser contexts produce identical asserted DOM state",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "Adding item increments list count to 3",
+      "expected": 3,
+      "actual": 3,
+      "passed": true
+    },
+    {
+      "name": "Clicking item label toggles checkbox state",
+      "expected": true,
+      "actual": true,
+      "passed": true
+    },
+    {
+      "name": "LocalStorage stores 3 items with updated state",
+      "expected": 3,
+      "actual": 3,
+      "passed": true
+    },
+    {
+      "name": "State persists across page reload",
+      "expected": 3,
+      "actual": 3,
+      "passed": true
+    },
+    {
+      "name": "No unhandled page errors across contexts",
+      "expected": 0,
+      "actual": 0,
+      "passed": true
+    }
+  ],
+  "summary": {
+    "passed": 11,
+    "total": 11
+  }
+}
