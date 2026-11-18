@@ -1,0 +1,10 @@
+# Baseline Behavior
+- The Speech Detection UI relied on standard CSS rules for visibility, making it vulnerable to silent regressions if a class name or layout rule was accidentally altered.
+
+# Changed Behavior
+- Implemented a regression test that validates the correct state, deliberately injects a plausible CSS mutation (`display: none` on the primary content container) in-memory, and asserts the broken state is correctly caught.
+- The underlying application code remains unmodified.
+
+# Tool Versions
+- Node: v26.x
+- Playwright: 1.x
