@@ -1,0 +1,82 @@
+[
+  {
+    "viewport": {
+      "width": 360,
+      "height": 800
+    },
+    "expected": {
+      "visibleText": "Psst: have a look at the JavaScript Console 💁",
+      "documentWidth": 360,
+      "bodyChildren": [
+        "P",
+        "SCRIPT"
+      ],
+      "controls": 0
+    },
+    "actual": {
+      "viewport": {
+        "width": 360,
+        "height": 800
+      },
+      "documentWidth": 360,
+      "bodyWidth": 344,
+      "bodyChildren": [
+        "P",
+        "SCRIPT"
+      ],
+      "visibleText": "Psst: have a look at the JavaScript Console 💁",
+      "controls": 0,
+      "prompt": {
+        "left": 8,
+        "top": 16,
+        "right": 352,
+        "bottom": 42,
+        "display": "block",
+        "visibility": "visible"
+      },
+      "linkedStylesheets": 0,
+      "externalScripts": 0,
+      "exerciseScriptPresent": true
+    }
+  },
+  {
+    "viewport": {
+      "width": 1280,
+      "height": 800
+    },
+    "expected": {
+      "visibleText": "Psst: have a look at the JavaScript Console 💁",
+      "documentWidth": 1280,
+      "bodyChildren": [
+        "P",
+        "SCRIPT"
+      ],
+      "controls": 0
+    },
+    "actual": {
+      "viewport": {
+        "width": 1280,
+        "height": 800
+      },
+      "documentWidth": 1280,
+      "bodyWidth": 1264,
+      "bodyChildren": [
+        "P",
+        "SCRIPT"
+      ],
+      "visibleText": "Psst: have a look at the JavaScript Console 💁",
+      "controls": 0,
+      "prompt": {
+        "left": 8,
+        "top": 16,
+        "right": 1272,
+        "bottom": 42,
+        "display": "block",
+        "visibility": "visible"
+      },
+      "linkedStylesheets": 0,
+      "externalScripts": 0,
+      "exerciseScriptPresent": true
+    }
+  }
+]
