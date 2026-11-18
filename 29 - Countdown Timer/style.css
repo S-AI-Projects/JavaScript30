@@ -15,6 +15,21 @@ body {
   font-family: 'Inconsolata', monospace;
 }
 
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1rem;
+  color: white;
+  background: #0d47a1;
+  transform: translateY(-150%);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+  z-index: 1;
+}
+
 .display__time-left {
   font-weight: 100;
   font-size: 20rem;
@@ -65,7 +80,12 @@ body {
 .timer__button:hover,
 .timer__button:focus {
   background: rgba(0,0,0,0.2);
-  outline: 0;
+}
+
+.timer__button:focus-visible,
+.timer__controls input:focus-visible {
+  outline: 3px solid white;
+  outline-offset: -3px;
 }
 
 .display {
