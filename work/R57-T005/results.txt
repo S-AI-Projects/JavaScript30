@@ -1,0 +1,13 @@
+# Baseline Behavior
+- The original HTML references external images from `unsplash.it` (e.g. `http://unsplash.it/400/400`).
+- Automated headless browser tests failed or stalled unpredictably due to external network latency, rate-limiting, or DNS failures.
+- Scroll timing and slide-in assertions were non-deterministic across test runs.
+
+# Changed Behavior
+- Replaced live external `unsplash.it` image sources with deterministic inline SVG data URIs that render immediately with exact 400x400 dimensions without external network calls.
+- Configured Playwright network route interception to block all external network traffic and ensure local offline determinism.
+- Verified that images successfully render and slide in on scroll with `complete && naturalHeight !== 0`.
+
+# Tool Versions
+- Node: v26.8.1
+- Playwright: 1.65.0
