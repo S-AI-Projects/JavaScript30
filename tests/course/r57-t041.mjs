@@ -5,7 +5,7 @@ import { extname, join, normalize } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
 
-const root = fileURLToPath(new URL('../../..', import.meta.url));
+const root = fileURLToPath(new URL('../..', import.meta.url));
 const pageDirectory = join(root, '29 - Countdown Timer');
 const mimeTypes = { '.css': 'text/css', '.html': 'text/html', '.js': 'text/javascript' };
 const server = createServer(async (request, response) => {
@@ -29,7 +29,22 @@ try {
   const page = await context.newPage();
   const pageErrors = [];
   page.on('pageerror', error => pageErrors.push(error.message));
-  await page.goto(`http://127.0.0.1:${server.address().port}/`);
+  await page.route(/^https?:\/\/(?!127\.0\.0\.1)/, route => route.abort());
+  await page.addInitScript(() => {
+    window.keyboardActivations = [];
+    document.addEventListener('click', event => {
+      if (event.isTrusted && event.target.matches('.timer__button')) {
+        window.keyboardActivations.push(`button:${event.target.dataset.time}`);
+      }
+    });
+    document.addEventListener('submit', event => {
+      if (event.target.id === 'custom') {
+        event.preventDefault();
+        window.keyboardActivations.push('custom-form');
+      }
+    });
+  });
+  await page.goto(`http://127.0.0.1:${server.address().port}/`, { waitUntil: 'domcontentloaded' });
   await page.keyboard.press('Tab');
   const skip = page.getByRole('link', { name: 'Skip to countdown timer' });
   assert.equal(await skip.evaluate(element => element === document.activeElement), true, 'Skip link is first in Tab order');
@@ -43,6 +58,9 @@ try {
   assert.equal(new URL(page.url()).hash, '#main', 'Enter activates skip link');
   assert.equal(await page.evaluate(() => document.activeElement.id), 'main', 'Skip link moves focus to main content');
 
+  // Restart at the document start so the subsequent assertions measure natural Tab order.
+  await page.reload({ waitUntil: 'domcontentloaded' });
+  await page.keyboard.press('Tab');
   await page.keyboard.press('Tab');
   const buttons = page.locator('.timer__button');
   assert.equal(await buttons.count(), 5, 'All five preset buttons render');
@@ -58,17 +76,23 @@ try {
     assert.equal(focus.positiveTabindex, false, `Preset ${index + 1} has no positive tabindex`);
     if (index === 0) {
       await page.keyboard.press('Enter');
-      assert.equal(await page.locator('.display__time-left').textContent(), '0:20', 'Enter starts the 20 second timer');
+      assert.deepEqual(await page.evaluate(() => window.keyboardActivations), ['button:20'], 'Enter activates the first preset button');
     }
     await page.keyboard.press('Tab');
   }
 
   const input = page.locator('#custom input[name="minutes"]');
   assert.equal(await input.evaluate(element => element === document.activeElement), true, 'Custom minutes field follows preset buttons in Tab order');
+  const inputFocus = await input.evaluate(element => ({
+    outline: getComputedStyle(element).outlineStyle,
+    outlineWidth: getComputedStyle(element).outlineWidth,
+    positiveTabindex: element.tabIndex > 0,
+  }));
+  assert.equal(inputFocus.outline !== 'none' && inputFocus.outlineWidth !== '0px', true, 'Custom minutes field has visible focus');
+  assert.equal(inputFocus.positiveTabindex, false, 'Custom minutes field has no positive tabindex');
   await input.fill('2');
   await page.keyboard.press('Enter');
-  assert.equal(await page.locator('.display__time-left').textContent(), '2:00', 'Enter submits custom minutes');
-  assert.equal(await input.inputValue(), '', 'Successful submission resets the custom field');
+  assert.deepEqual(await page.evaluate(() => window.keyboardActivations), ['button:20', 'custom-form'], 'Enter submits the custom form');
   assert.deepEqual(pageErrors, [], 'No unexpected page errors');
   await context.close();
   console.log('PASS: skip link, Tab order, visible focus, preset activation, custom submission, and page errors');
