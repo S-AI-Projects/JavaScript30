@@ -1,0 +1,2 @@
+{"viewport":[360,800],"scrollWidth":360,"bodyScrollWidth":344,"bodyChildren":["P","SCRIPT"],"visibleText":"Psst: have a look at the JavaScript Console 💁","paragraphRect":{"x":8,"y":16,"width":344,"height":26,"right":352,"bottom":42},"scripts":1,"links":0}
+{"viewport":[1280,800],"scrollWidth":1280,"bodyScrollWidth":1264,"bodyChildren":["P","SCRIPT"],"visibleText":"Psst: have a look at the JavaScript Console 💁","paragraphRect":{"x":8,"y":16,"width":1264,"height":26,"right":1272,"bottom":42},"scripts":1,"links":0}

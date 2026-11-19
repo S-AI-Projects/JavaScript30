@@ -1,0 +1,5 @@
+Task: R57-T042 — responsive-layout regression for 04 - Array Cardio Day 1/index-START.html
+Inputs: target HTML; requested viewport sizes 360x800 and 1280x800; expected visible text "Psst: have a look at the JavaScript Console 💁"; expected body element order P then SCRIPT; expected no controls; expected document scroll width equal to viewport width.
+Environment: Node.js v26.13.0; npm 11.20.0; Playwright 1.65.1; Chromium installed by Playwright (executable path reports chromium-1255).
+Baseline: captured from the unchanged page before authoring this regression at both requested viewport sizes. See baseline.txt.
+Check command: node tests/course/r57-t042.mjs
