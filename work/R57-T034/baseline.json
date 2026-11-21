@@ -1,0 +1,11 @@
+{
+  "task": "R57-T034",
+  "page": "10 - Hold Shift and Check Checkboxes/index-START.html",
+  "anchors": ["input"],
+  "baseline_observations": [
+    "index-START.html script block is empty, meaning Shift-click range selection does not occur.",
+    "External icon request to https://fav.farm introduces network dependency and potential test flakiness.",
+    "No automated verification ensuring deterministic DOM state across multiple fresh browser contexts."
+  ],
+  "decision": "Implement bidirectional Shift-click checkbox selection logic in index-START.html; intercept external network requests in Playwright; add automated regression test tests/course/r57-t034.mjs that runs identical operations in two fresh browser contexts and asserts identical DOM state."
+}
