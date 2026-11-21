@@ -1,0 +1,12 @@
+{
+  "task": "R57-T035",
+  "page": "02 - JS and CSS Clock/index-START.html",
+  "anchors": ["the main rendered content region (.clock)"],
+  "baseline_observations": [
+    "index-START.html script block is empty, meaning clock hands do not rotate and stay frozen horizontally.",
+    "The page relies entirely on CSS 2D transforms (transform: rotate(...), transform-origin: 100%) without feature detection.",
+    "If CSS transforms are unsupported, hands render broken across center with no readable fallback text or digital alternative.",
+    "External background image request to unsplash.it introduces external dependency."
+  ],
+  "decision": "Implement analog clock hands rotation logic; implement CSS @supports and JS feature detection for CSS transforms; add semantic digital fallback readout (#clock-fallback); add automated Playwright regression test tests/course/r57-t035.mjs verifying both feature-present (analog rotation) and feature-absent (stubbed transform unsupported with digital fallback) execution paths."
+}
