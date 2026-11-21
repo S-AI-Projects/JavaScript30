@@ -1,0 +1,136 @@
+{
+  "task": "R57-T031",
+  "page": "11 - Custom Video Player/index.html",
+  "browser": "Chromium",
+  "viewports_tested": [
+    "1280x800",
+    "360x800"
+  ],
+  "checks": [
+    {
+      "name": "Desktop: HTTP status is 200",
+      "passed": true,
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "name": "Desktop: No unexpected page errors",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "Desktop: No horizontal overflow (scrollWidth <= 1280)",
+      "passed": true,
+      "expected": true,
+      "actual": "scrollWidth=1280, clientWidth=1280"
+    },
+    {
+      "name": "Desktop: Video anchor is present",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "Desktop: Video fits within viewport width",
+      "passed": true,
+      "expected": true,
+      "actual": "right=1010.0, width=740.0"
+    },
+    {
+      "name": "Desktop: All 3 buttons present and have non-zero dimensions",
+      "passed": true,
+      "expected": true,
+      "actual": 3
+    },
+    {
+      "name": "Desktop: All buttons fit within viewport bounds",
+      "passed": true,
+      "expected": true,
+      "actual": "320.0, 960.0, 1010.0"
+    },
+    {
+      "name": "Desktop: Volume and playbackRate inputs are rendered",
+      "passed": true,
+      "expected": true,
+      "actual": 2
+    },
+    {
+      "name": "Desktop: All inputs fit within viewport bounds",
+      "passed": true,
+      "expected": true,
+      "actual": "610.0, 905.0"
+    },
+    {
+      "name": "Desktop: Clicking toggle button changes video play/paused state",
+      "passed": true,
+      "expected": true,
+      "actual": "video.paused=false"
+    },
+    {
+      "name": "Desktop: Volume range input updates video volume",
+      "passed": true,
+      "expected": 0.5,
+      "actual": 0.5
+    },
+    {
+      "name": "Mobile: HTTP status is 200",
+      "passed": true,
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "name": "Mobile: No unexpected page errors",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "Mobile: No horizontal overflow (scrollWidth <= 360)",
+      "passed": true,
+      "expected": true,
+      "actual": "scrollWidth=360, clientWidth=360"
+    },
+    {
+      "name": "Mobile: Video anchor is present",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "Mobile: Video fits within viewport width",
+      "passed": true,
+      "expected": true,
+      "actual": "right=355.0, width=350.0"
+    },
+    {
+      "name": "Mobile: All 3 buttons present and have non-zero dimensions",
+      "passed": true,
+      "expected": true,
+      "actual": 3
+    },
+    {
+      "name": "Mobile: All buttons fit within viewport bounds",
+      "passed": true,
+      "expected": true,
+      "actual": "55.0, 305.0, 355.0"
+    },
+    {
+      "name": "Mobile: Volume and playbackRate inputs are rendered",
+      "passed": true,
+      "expected": true,
+      "actual": 2
+    },
+    {
+      "name": "Mobile: All inputs fit within viewport bounds",
+      "passed": true,
+      "expected": true,
+      "actual": "150.0, 250.0"
+    }
+  ],
+  "summary": {
+    "passed": 20,
+    "total": 20,
+    "status": "PASS"
+  }
+}
