@@ -8,6 +8,7 @@
 </head>
 <body>
 
+  <div id="status-display" class="status-display" role="status">Press a key (A, S, D, F, G, H, J, K, L) to play sound</div>
 
   <div class="keys">
     <div data-key="65" class="key">
@@ -59,7 +60,85 @@
   <audio data-key="76" src="sounds/tink.wav"></audio>
 
 <script>
+  const statusDisplay = document.getElementById('status-display');
 
+  function removeTransition(e) {
+    if (e.propertyName !== 'transform') return;
+    e.target.classList.remove('playing');
+  }
+
+  function playSound(e) {
+    const keyCode = e.keyCode || e.which;
+    const audio = document.querySelector(`audio[data-key="${keyCode}"]`);
+    const key = document.querySelector(`div[data-key="${keyCode}"]`);
+
+    if (!audio || !key) {
+      if (statusDisplay) {
+        statusDisplay.textContent = `Key "${e.key ? e.key.toUpperCase() : keyCode}" not mapped to any drum sound. Press A, S, D, F, G, H, J, K, L.`;
+        statusDisplay.classList.add('error');
+      }
+      return;
+    }
+
+    if (audio.error) {
+      key.classList.remove('playing');
+      key.classList.add('key-error');
+      if (statusDisplay) {
+        statusDisplay.textContent = `Audio asset error for ${key.querySelector('kbd').textContent}: sound file failed to load`;
+        statusDisplay.classList.add('error');
+      }
+      return;
+    }
+
+    // Reset previous error states and activate playing animation
+    key.classList.remove('key-error');
+    key.classList.add('playing');
+
+    if (statusDisplay) {
+      const soundName = key.querySelector('.sound') ? key.querySelector('.sound').textContent : 'drum';
+      statusDisplay.textContent = `Playing ${soundName}`;
+      statusDisplay.classList.remove('error');
+    }
+
+    try {
+      audio.currentTime = 0;
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch((err) => {
+          key.classList.remove('playing');
+          key.classList.add('key-error');
+          if (statusDisplay) {
+            statusDisplay.textContent = `Audio playback error for ${key.querySelector('kbd').textContent}: unable to play sound`;
+            statusDisplay.classList.add('error');
+          }
+        });
+      }
+    } catch (err) {
+      key.classList.remove('playing');
+      key.classList.add('key-error');
+      if (statusDisplay) {
+        statusDisplay.textContent = `Audio error: ${err.message}`;
+        statusDisplay.classList.add('error');
+      }
+    }
+  }
+
+  // Handle asset loading error on audio elements
+  const audios = document.querySelectorAll('audio');
+  audios.forEach((audio) => {
+    audio.addEventListener('error', () => {
+      const k = document.querySelector(`div[data-key="${audio.dataset.key}"]`);
+      if (k) k.classList.add('key-error');
+      if (statusDisplay) {
+        statusDisplay.textContent = `Audio asset failed to load (${audio.getAttribute('src')})`;
+        statusDisplay.classList.add('error');
+      }
+    });
+  });
+
+  const keys = Array.from(document.querySelectorAll('.key'));
+  keys.forEach((key) => key.addEventListener('transitionend', removeTransition));
+  window.addEventListener('keydown', playSound);
 </script>
 
 

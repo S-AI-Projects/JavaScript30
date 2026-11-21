@@ -1,6 +1,7 @@
 html {
   font-size: 10px;
-  background: url('./background.jpg') bottom center;
+  background-color: #121826;
+  background: #121826 url('./background.jpg') bottom center;
   background-size: cover;
 }
 
@@ -48,4 +49,33 @@ kbd {
   text-transform: uppercase;
   letter-spacing: .1rem;
   color: #ffc600;
+}
+
+.status-display {
+  position: fixed;
+  top: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.75);
+  color: #ffc600;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  font-size: 1.4rem;
+  border: 1px solid rgba(255, 198, 0, 0.3);
+  text-align: center;
+  min-width: 250px;
+  pointer-events: none;
+  transition: all 0.2s ease;
+}
+
+.status-display.error {
+  color: #ff4d4f;
+  border-color: #ff4d4f;
+  background: rgba(40, 0, 0, 0.85);
+}
+
+.key.key-error {
+  border-color: #ff4d4f;
+  box-shadow: 0 0 1rem #ff4d4f;
+  color: #ff4d4f;
 }
