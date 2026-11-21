@@ -5,8 +5,101 @@
     <title>Key Detection</title>
     <script type="text/javascript" src="./cornify.js"></script>
     <link rel="icon" href="https://fav.farm/🔥" />
+    <style>
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #1e1e2f;
+        font-family: system-ui, -apple-system, sans-serif;
+        color: #f0f0f0;
+      }
+      .key-sequence-container {
+        text-align: center;
+        padding: 3rem;
+        background: #27293d;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        max-width: 500px;
+        width: 90%;
+      }
+      h1 {
+        margin-top: 0;
+        font-size: 2.2rem;
+        color: #ffc600;
+      }
+      .instructions {
+        color: #a0a0b0;
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+      }
+      .key-buffer {
+        font-family: monospace;
+        font-size: 1.8rem;
+        background: #1a1a27;
+        padding: 1rem;
+        border-radius: 6px;
+        letter-spacing: 0.3rem;
+        min-height: 2.2rem;
+        color: #4cd137;
+        border: 1px solid #3d3d5c;
+      }
+      .key-status {
+        margin-top: 1.5rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+        min-height: 1.5rem;
+        color: #ff9ff3;
+      }
+      .celebration-active {
+        color: #feca57;
+        animation: pulse 0.8s infinite alternate;
+      }
+      @keyframes pulse {
+        from { transform: scale(1); }
+        to { transform: scale(1.05); }
+      }
+    </style>
   </head>
   <body>
-    <script></script>
+    <main class="key-sequence-container" role="main">
+      <h1>Key Sequence Detector</h1>
+      <p class="instructions">Type the secret code to trigger celebration</p>
+      <div class="key-buffer" id="key-buffer">(awaiting keys...)</div>
+      <div class="key-status" id="key-status">Status: Waiting for input</div>
+    </main>
+
+    <script>
+      const pressed = [];
+      const secretCode = 'wesbos';
+      const bufferEl = document.getElementById('key-buffer');
+      const statusEl = document.getElementById('key-status');
+
+      window.addEventListener('keyup', (e) => {
+        if (!e.key || e.key.length !== 1) return;
+        pressed.push(e.key.toLowerCase());
+        pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+
+        if (bufferEl) {
+          bufferEl.textContent = pressed.join('');
+        }
+
+        if (pressed.join('').includes(secretCode)) {
+          if (statusEl) {
+            statusEl.textContent = '🎉 Secret Code Detected! DING DING!';
+            statusEl.classList.add('celebration-active');
+          }
+          if (typeof cornify_add === 'function') {
+            cornify_add();
+          }
+        } else {
+          if (statusEl && !statusEl.classList.contains('celebration-active')) {
+            statusEl.textContent = 'Status: Tracking keys...';
+          }
+        }
+      });
+    </script>
   </body>
 </html>
