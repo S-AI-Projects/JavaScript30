@@ -1,0 +1,38 @@
+{
+  "source": "base commit c36f2ed261eacb3e9ad83c05eb2fd3a4f72cc82f, before edits",
+  "outcome": "measured",
+  "node": "v26.13.0",
+  "npm": "11.20.0",
+  "playwright": "1.65.1",
+  "chromium": "159.0.8154.6",
+  "actual": {
+    "skipLinks": 0,
+    "mainLandmarks": 0,
+    "customTag": "FORM",
+    "customFormAccessibleName": null,
+    "customInputAccessibleName": null,
+    "buttons": ["20 Secs", "Work 5", "Quick 15", "Snack 20", "Lunch Break"],
+    "startScriptBytes": 0,
+    "layout": {
+      "timerDisplay": "flex",
+      "timerFlexDirection": "column",
+      "timerMinHeight": "720px",
+      "displayDisplay": "flex",
+      "displayFlexGrow": "1",
+      "displayBounds": {"x": 0, "y": 55, "width": 1280, "height": 665, "top": 55, "right": 1280, "bottom": 720, "left": 0}
+    },
+    "tabOrder": [
+      {"tag": "BUTTON", "text": "20 Secs", "name": null},
+      {"tag": "BUTTON", "text": "Work 5", "name": null},
+      {"tag": "BUTTON", "text": "Quick 15", "name": null},
+      {"tag": "BUTTON", "text": "Snack 20", "name": null},
+      {"tag": "BUTTON", "text": "Lunch Break", "name": null},
+      {"tag": "INPUT", "text": "", "name": null}
+    ],
+    "buttonFocusedBackground": "rgba(0, 0, 0, 0.2)",
+    "buttonUnfocusedBackground": "rgba(0, 0, 0, 0.1)",
+    "inputOutlineStyle": "auto",
+    "keyboardEffects": ["button:0", "button:1", "custom:submit"],
+    "errors": []
+  }
+}

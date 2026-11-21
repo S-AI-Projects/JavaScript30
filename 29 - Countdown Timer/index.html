@@ -8,6 +8,7 @@
   <link rel="icon" href="https://fav.farm/🔥" />
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to countdown timer</a>
   <div class="timer">
     <div class="timer__controls">
       <button data-time="20" class="timer__button">20 Secs</button>
@@ -15,14 +16,14 @@
       <button data-time="900" class="timer__button">Quick 15</button>
       <button data-time="1200" class="timer__button">Snack 20</button>
       <button data-time="3600" class="timer__button">Lunch Break</button>
-      <form name="customForm" id="custom">
-        <input type="text" name="minutes" placeholder="Enter Minutes">
+      <form name="customForm" id="custom" aria-label="Custom countdown">
+        <input type="text" name="minutes" placeholder="Enter Minutes" aria-label="Minutes for custom countdown">
       </form>
     </div>
-    <div class="display">
+    <main class="display" id="main" tabindex="-1">
       <h1 class="display__time-left"></h1>
       <p class="display__end-time"></p>
-    </div>
+    </main>
   </div>
 
   <script src="scripts-START.js"></script>

@@ -1,0 +1,101 @@
+{
+  "outcome": "passed",
+  "node": "v26.13.0",
+  "playwright": "^1.65.1",
+  "chromium": "159.0.8154.6",
+  "assertionsExpected": [
+    "skip link is first in Tab order, becomes visible, and Enter focuses main content",
+    "custom form and input have accessible names; all preset buttons and the input are reachable in DOM order",
+    "button and input focus are visible; no positive tabindex exists",
+    "Enter and Space dispatch button click events and Enter dispatches form submit",
+    "no unexpected page or console errors"
+  ],
+  "actual": {
+    "customFormAccessibleName": "Custom countdown",
+    "customInputAccessibleName": "Minutes for custom countdown",
+    "keyboardEffects": [
+      "button:0",
+      "button:1",
+      "custom:submit"
+    ],
+    "tabOrder": [
+      "Skip to countdown timer",
+      "20 Secs",
+      "Work 5",
+      "Quick 15",
+      "Snack 20",
+      "Lunch Break",
+      "Minutes for custom countdown"
+    ],
+    "visibleFocus": [
+      {
+        "tag": "A",
+        "outlineStyle": "auto",
+        "outlineWidth": "1px",
+        "background": "rgb(255, 255, 255)",
+        "inViewport": true
+      },
+      {
+        "tag": "BUTTON",
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "background": "rgba(0, 0, 0, 0.2)",
+        "inViewport": true
+      },
+      {
+        "tag": "BUTTON",
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "background": "rgba(0, 0, 0, 0.2)",
+        "inViewport": true
+      },
+      {
+        "tag": "BUTTON",
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "background": "rgba(0, 0, 0, 0.2)",
+        "inViewport": true
+      },
+      {
+        "tag": "BUTTON",
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "background": "rgba(0, 0, 0, 0.2)",
+        "inViewport": true
+      },
+      {
+        "tag": "BUTTON",
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "background": "rgba(0, 0, 0, 0.2)",
+        "inViewport": true
+      },
+      {
+        "tag": "INPUT",
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "background": "rgb(255, 255, 255)",
+        "inViewport": true
+      }
+    ],
+    "skipTarget": "#main",
+    "layout": {
+      "timerDisplay": "flex",
+      "timerFlexDirection": "column",
+      "timerMinHeight": "720px",
+      "displayDisplay": "flex",
+      "displayFlexGrow": "1",
+      "displayBounds": {
+        "x": 0,
+        "y": 55,
+        "width": 1280,
+        "height": 665,
+        "top": 55,
+        "right": 1280,
+        "bottom": 720,
+        "left": 0
+      }
+    },
+    "browserErrors": []
+  }
+}
