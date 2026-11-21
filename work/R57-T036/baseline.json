@@ -1,0 +1,12 @@
+{
+  "task": "R57-T036",
+  "page": "12 - Key Sequence Detection/index-START.html",
+  "anchors": ["the main rendered content region (.key-sequence-container)"],
+  "baseline_observations": [
+    "index-START.html script block is empty, with no keyup listener or sequence buffer logic.",
+    "The body has no rendered content elements or visual feedback for typed keys.",
+    "No walkthrough documentation exists for running, interacting with, or verifying the secret code detection.",
+    "Calling cornify_add() directly when cornify.js is absent or blocked could throw an uncaught ReferenceError."
+  ],
+  "decision": "Implement sequence detection logic with visual semantic DOM container (.key-sequence-container, .key-buffer, .key-status); publish WALKTHROUGH.md documenting prerequisites, step-by-step walkthrough, and expected outputs; write Playwright test tests/course/r57-t036.mjs executing the exact walkthrough steps."
+}
