@@ -1,0 +1,33 @@
+{
+  "task": "R57-T031",
+  "page": "11 - Custom Video Player/index.html",
+  "anchors": ["video", "button", "input"],
+  "examined_viewports": [
+    {
+      "width": 1280,
+      "height": 800,
+      "baseline_status": "PASS",
+      "measured_scroll_width": 1280,
+      "overflow_pixels": 0,
+      "issues": [
+        "Missing <meta name=\"viewport\"> tag.",
+        "Controls hidden by default (translateY off-screen) without focus-within accessibility.",
+        "scripts.js is empty, leaving interactive controls (play button, sliders, skip buttons) non-functional."
+      ]
+    },
+    {
+      "width": 360,
+      "height": 800,
+      "baseline_status": "PARTIAL",
+      "measured_scroll_width": 360,
+      "overflow_pixels": 0,
+      "issues": [
+        "Missing <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"> causes standard mobile browsers to render at desktop emulation scale.",
+        "Controls translated offscreen with no hover mechanism on mobile touch devices; controls remain inaccessible unless focus-within or mobile display is handled.",
+        "Tight control wrapping risk on small screen widths.",
+        "scripts.js is empty, leaving video, buttons, and range inputs non-functional."
+      ]
+    }
+  ],
+  "decision": "Add viewport meta tag in index.html; populate scripts.js with video player control logic; update style.css to ensure fluid width (width: 100%, max-width: 750px), focus-within accessibility for controls, and responsive controls padding/visibility; add Playwright regression test tests/course/r57-t031.mjs and documentation in README.md."
+}
