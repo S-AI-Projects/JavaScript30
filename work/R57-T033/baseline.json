@@ -1,0 +1,13 @@
+{
+  "task": "R57-T033",
+  "page": "22 - Follow Along Link Highlighter/index-START.html",
+  "anchors": ["a"],
+  "baseline_observations": [
+    "index-START.html script block is empty with no link highlighter implementation.",
+    "No lifecycle management or initialization encapsulation exists.",
+    "Naive implementation creates and appends a new span.highlight on every initialization, accumulating duplicate DOM nodes.",
+    "Naive implementation attaches mouseenter listeners to all anchors repeatedly, causing duplicate handler execution on re-init.",
+    "No cleanup / teardown mechanism exists to detach listeners and remove created DOM nodes."
+  ],
+  "decision": "Implement idempotent initFollowAlongLinks() using AbortController and DOM existence check; expose destroyFollowAlongLinks() for clean teardown; support both mouseenter and focus events; add Playwright regression test tests/course/r57-t033.mjs verifying single DOM node, zero duplicate handlers upon repeat initialization, and clean teardown."
+}

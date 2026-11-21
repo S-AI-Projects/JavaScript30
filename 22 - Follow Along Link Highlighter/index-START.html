@@ -27,7 +27,69 @@
     </div>
 
   <script>
-    // 👀👀👀👀👀👀👀👀👀👀👀👀👀👀👀
+    let abortController = null;
+    let highlightElement = null;
+
+    function highlightLink(e) {
+      const link = e.target || this;
+      if (!highlightElement || !link || !link.getBoundingClientRect) return;
+      const linkCoords = link.getBoundingClientRect();
+      const coords = {
+        width: linkCoords.width,
+        height: linkCoords.height,
+        top: linkCoords.top + window.scrollY,
+        left: linkCoords.left + window.scrollX
+      };
+
+      highlightElement.style.width = `${coords.width}px`;
+      highlightElement.style.height = `${coords.height}px`;
+      highlightElement.style.transform = `translate(${coords.left}px, ${coords.top}px)`;
+      highlightElement.style.display = 'inline-block';
+    }
+
+    function initFollowAlongLinks() {
+      // Clean up previous controller/listeners if already initialized
+      if (abortController) {
+        abortController.abort();
+      }
+      abortController = new AbortController();
+      const { signal } = abortController;
+
+      // Ensure only a single highlight element exists in the DOM
+      let existingHighlight = document.querySelector('.highlight');
+      if (!existingHighlight) {
+        existingHighlight = document.createElement('span');
+        existingHighlight.classList.add('highlight');
+        document.body.appendChild(existingHighlight);
+      }
+      highlightElement = existingHighlight;
+
+      const triggers = document.querySelectorAll('a');
+      triggers.forEach(a => {
+        a.addEventListener('mouseenter', highlightLink, { signal });
+        a.addEventListener('focus', highlightLink, { signal });
+      });
+
+      return highlightElement;
+    }
+
+    function destroyFollowAlongLinks() {
+      if (abortController) {
+        abortController.abort();
+        abortController = null;
+      }
+      const existing = document.querySelector('.highlight');
+      if (existing) {
+        existing.remove();
+      }
+      highlightElement = null;
+    }
+
+    window.initFollowAlongLinks = initFollowAlongLinks;
+    window.destroyFollowAlongLinks = destroyFollowAlongLinks;
+
+    // Auto-initialize on load
+    initFollowAlongLinks();
   </script>
 </body>
 </html>
