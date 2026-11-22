@@ -1,0 +1,16 @@
+{
+  "task": "R57-T039",
+  "issue": 39,
+  "exercise": "09 - Dev Tools Domination",
+  "targetFile": "09 - Dev Tools Domination/index-START.html",
+  "baselineObservations": {
+    "pageTitle": "Console Tricks!",
+    "mainElement": "p element with text '×BREAK×DOWN×' and onClick='makeGreen()'",
+    "initialColor": "rgb(0, 0, 0)",
+    "initialFontSize": "16px",
+    "clickedColor": "rgb(186, 218, 85) (#BADA55)",
+    "clickedFontSize": "50px",
+    "regressionTrapTarget": "Broken click event binding or omitted style assignment in makeGreen"
+  },
+  "timestamp": "2026-11-22T11:51:00Z"
+}
