@@ -1,0 +1,12 @@
+{
+  "task": "R57-T037",
+  "page": "27 - Click and Drag/index-START.html",
+  "anchors": ["the main rendered content region (.items)"],
+  "baseline_observations": [
+    "index-START.html script block is empty, with no click-and-drag scroll handling implemented.",
+    "The page has only static items ('01' to '25') and lacks dynamic text rendering capabilities.",
+    "No input validation or safe text-rendering boundary exists to protect against HTML tag injection or XSS payload execution."
+  ],
+  "decision": "Implement click-and-drag slider functionality in index-START.html; add isolated text-rendering companion input (#custom-item-text) using strict textContent assignment; add automated Playwright regression test tests/course/r57-t037.mjs verifying click-and-drag scrolling and asserting that HTML/script payloads render strictly as literal text with zero injected tags or executed handlers."
+}
+

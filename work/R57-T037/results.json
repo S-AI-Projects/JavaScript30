@@ -1,0 +1,94 @@
+{
+  "task": "R57-T037",
+  "page": "27 - Click and Drag/index-START.html",
+  "browser": "Chromium",
+  "checks": [
+    {
+      "name": "Page responds with HTTP 200",
+      "passed": true,
+      "expected": 200,
+      "actual": 200
+    },
+    {
+      "name": "No initial page errors",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "Initial item count is 25 in .items gallery",
+      "passed": true,
+      "expected": 25,
+      "actual": 25
+    },
+    {
+      "name": "Gallery container .items has valid dimensions",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "Gallery receives .active class on mousedown",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "Mouse dragging scrolls gallery content (scrollLeft > 0)",
+      "passed": true,
+      "expected": true,
+      "actual": 1200
+    },
+    {
+      "name": "Gallery removes .active class on mouseup",
+      "passed": true,
+      "expected": true,
+      "actual": true
+    },
+    {
+      "name": "Custom item card successfully added to gallery",
+      "passed": true,
+      "expected": 26,
+      "actual": 26
+    },
+    {
+      "name": "XSS payload executed zero handlers (window.__xss_flag is undefined)",
+      "passed": true
+    },
+    {
+      "name": "Zero injected script elements created",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "Zero injected img elements created",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "Zero injected bold elements created",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    },
+    {
+      "name": "Fixture string rendered purely as literal textContent",
+      "passed": true,
+      "expected": true,
+      "actual": "<img src=\"invalid-url\" onerror=\"window.__xss_flag=true\"><script>window.__xss_flag=true</script><b>Bold Card</b> & Special \"Quotes\""
+    },
+    {
+      "name": "Zero uncaught page errors throughout test execution",
+      "passed": true,
+      "expected": 0,
+      "actual": 0
+    }
+  ],
+  "summary": {
+    "passed": 14,
+    "total": 14,
+    "status": "PASS"
+  }
+}
