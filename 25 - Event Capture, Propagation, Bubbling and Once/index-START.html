@@ -6,12 +6,18 @@
   <link rel="icon" href="https://fav.farm/🔥" />
 </head>
 <body class="bod">
+  <a href="#main-content" class="skip-link">Skip to Content</a>
 
-  <div class="one">
-    <div class="two">
-      <div class="three">
+  <div id="main-content" class="one" tabindex="0" role="button" aria-label="Layer One">
+    <div class="two" tabindex="0" role="button" aria-label="Layer Two">
+      <div class="three" tabindex="0" role="button" aria-label="Layer Three">
       </div>
     </div>
+  </div>
+
+  <div class="button-container">
+    <button id="once-btn" type="button">Click Once</button>
+    <div id="event-status" role="status" class="status-box">Ready</div>
   </div>
 
 <style>
@@ -21,6 +27,31 @@
 
   *, *:before, *:after {
     box-sizing: inherit;
+  }
+
+  body {
+    margin: 0;
+    font-family: sans-serif;
+  }
+
+  .skip-link {
+    position: absolute;
+    top: -100px;
+    left: 20px;
+    background: #ffc600;
+    color: #000000;
+    padding: 10px 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 1000;
+  }
+
+  .skip-link:focus,
+  .skip-link:focus-visible {
+    top: 15px;
+    outline: 3px solid #000000;
+    outline-offset: 2px;
   }
 
   div {
@@ -39,10 +70,82 @@
   .three {
     background: coral;
   }
+
+  .button-container {
+    padding: 20px;
+    text-align: center;
+  }
+
+  #once-btn {
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    background: #282828;
+    color: #ffffff;
+    border: 2px solid transparent;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+
+  .status-box {
+    margin-top: 10px;
+    padding: 8px;
+    font-size: 14px;
+    color: #333333;
+  }
+
+  /* High contrast keyboard focus indicators without modifying demonstrated div layout */
+  div:focus,
+  div:focus-visible,
+  #once-btn:focus,
+  #once-btn:focus-visible {
+    outline: 4px solid #000000;
+    outline-offset: -4px;
+  }
 </style>
 
 <script>
+  const divs = document.querySelectorAll('.one, .two, .three');
+  const button = document.getElementById('once-btn');
+  const statusEl = document.getElementById('event-status');
 
+  window.__eventLog = [];
+
+  function logText(e) {
+    const cls = this.classList[0] || this.className;
+    console.log(cls);
+    window.__eventLog.push(cls);
+    if (statusEl) {
+      statusEl.textContent = `Event logged: ${cls}`;
+    }
+  }
+
+  divs.forEach(div => {
+    div.addEventListener('click', logText, {
+      capture: false,
+      once: true
+    });
+
+    // Keyboard activation (Enter / Space)
+    div.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        div.click();
+      }
+    });
+  });
+
+  if (button) {
+    button.addEventListener('click', () => {
+      console.log('Click!!!');
+      window.__eventLog.push('button-clicked');
+      if (statusEl) {
+        statusEl.textContent = 'Button Clicked Once!';
+      }
+    }, {
+      once: true
+    });
+  }
 </script>
 </body>
 </html>

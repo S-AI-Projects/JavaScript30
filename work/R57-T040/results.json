@@ -1,0 +1,126 @@
+{
+  "task": "R57-T040",
+  "timestamp": "2026-11-22T06:25:18.996Z",
+  "checks": [
+    {
+      "name": "Page responds with HTTP 200",
+      "pass": true,
+      "details": {
+        "status": 200
+      }
+    },
+    {
+      "name": "Skip link is positioned off-screen initially",
+      "pass": true,
+      "details": {
+        "top": -100
+      }
+    },
+    {
+      "name": "Tab focuses skip link and makes it visibly focused",
+      "pass": true,
+      "details": {
+        "focused": "skip-link",
+        "top": 15,
+        "outline": {
+          "outlineStyle": "solid",
+          "outlineWidth": "3px"
+        }
+      }
+    },
+    {
+      "name": "Activating skip link navigates to #main-content anchor",
+      "pass": true,
+      "details": {
+        "hash": "#main-content"
+      }
+    },
+    {
+      "name": "Focus shifts to #main-content (.one) after skip link activation",
+      "pass": true,
+      "details": {
+        "focused": "main-content"
+      }
+    },
+    {
+      "name": "Tab navigates to layer two (.two)",
+      "pass": true,
+      "details": {
+        "active": "two"
+      }
+    },
+    {
+      "name": "Tab navigates to layer three (.three)",
+      "pass": true,
+      "details": {
+        "active": "three"
+      }
+    },
+    {
+      "name": "Layer three displays visible focus outline",
+      "pass": true,
+      "details": {
+        "outline": {
+          "outlineStyle": "solid",
+          "outlineWidth": "4px"
+        }
+      }
+    },
+    {
+      "name": "Enter key triggers bubbling events on layer three",
+      "pass": true,
+      "details": {
+        "eventLog": [
+          "three",
+          "two",
+          "one"
+        ]
+      }
+    },
+    {
+      "name": "Tab navigates to #once-btn control",
+      "pass": true,
+      "details": {
+        "activeBtn": "once-btn"
+      }
+    },
+    {
+      "name": "Button displays visible focus outline",
+      "pass": true,
+      "details": {
+        "outline": {
+          "outlineStyle": "solid",
+          "outlineWidth": "4px"
+        }
+      }
+    },
+    {
+      "name": "Space key activates #once-btn once listener",
+      "pass": true,
+      "details": {
+        "eventLog": [
+          "three",
+          "two",
+          "one",
+          "button-clicked"
+        ]
+      }
+    },
+    {
+      "name": "Zero positive tabindex attributes introduced",
+      "pass": true,
+      "details": {
+        "positiveTabindexCount": 0
+      }
+    },
+    {
+      "name": "Zero uncaught page errors during entire interaction",
+      "pass": true,
+      "details": {
+        "pageErrors": []
+      }
+    }
+  ],
+  "passed": 14,
+  "failed": 0
+}

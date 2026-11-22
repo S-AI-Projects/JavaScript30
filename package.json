@@ -1,0 +1,21 @@
+{
+  "name": "javascript30",
+  "version": "1.0.0",
+  "description": "JavaScript30 30 Day Vanilla JS Coding Challenge",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "node tests/course/r57-t040.mjs",
+    "test:r57-t040": "node tests/course/r57-t040.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/S-AI-Projects/JavaScript30.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "playwright": "^1.65.1"
+  }
+}
