@@ -1,0 +1,15 @@
+{
+  "task": "R57-T038",
+  "issue": 38,
+  "exercise": "21 - Geolocation",
+  "targetFile": "21 - Geolocation/index-START.html",
+  "baselineObservations": {
+    "scriptState": "Empty script tag in index-START.html",
+    "reducedMotionSupport": "No prefers-reduced-motion media query present; .arrow has hardcoded transition: all 0.2s",
+    "keyboardFocus": "No focusable interactive elements or visible focus outline definitions in CSS",
+    "responsiveLayout": "html font-size is hardcoded to 100px with no clamp or max-width constraints on small viewports",
+    "geolocation": "Native watchPosition call unhandled in starter code"
+  },
+  "timestamp": "2026-11-22T11:47:00Z"
+}
+

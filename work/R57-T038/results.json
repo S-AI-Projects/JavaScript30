@@ -1,0 +1,110 @@
+{
+  "task": "R57-T038",
+  "timestamp": "2026-11-22T06:18:49.620Z",
+  "checks": [
+    {
+      "name": "Page responds with HTTP 200",
+      "pass": true,
+      "details": {
+        "status": 200
+      }
+    },
+    {
+      "name": "Main rendered content region (.compass-app) is visible",
+      "pass": true,
+      "details": {
+        "visible": true
+      }
+    },
+    {
+      "name": "Geolocation heading updates arrow rotation transform",
+      "pass": true,
+      "details": {
+        "transform": "rotate(180deg)"
+      }
+    },
+    {
+      "name": "Normal motion allows transition duration (> 0s)",
+      "pass": true,
+      "details": {
+        "duration": "0.2s"
+      }
+    },
+    {
+      "name": "Zero errors in normal motion scenario",
+      "pass": true,
+      "details": {
+        "errors": []
+      }
+    },
+    {
+      "name": "Reduced-motion disables transition duration (0s)",
+      "pass": true,
+      "details": {
+        "duration": "0s"
+      }
+    },
+    {
+      "name": "Interactive control updates heading under reduced motion",
+      "pass": true,
+      "details": {
+        "transform": "rotate(135deg)",
+        "speed": "12"
+      }
+    },
+    {
+      "name": "Zero errors in reduced motion scenario",
+      "pass": true,
+      "details": {
+        "errors": []
+      }
+    },
+    {
+      "name": "Zero horizontal overflow at 360px viewport",
+      "pass": true,
+      "details": {
+        "overflow": false
+      }
+    },
+    {
+      "name": "Visible keyboard focus indicator at 360px",
+      "pass": true,
+      "details": {
+        "activeElementId": "calibrate-btn",
+        "outline": {
+          "outlineStyle": "solid",
+          "outlineWidth": "3px",
+          "outlineColor": "rgb(255, 255, 255)"
+        }
+      }
+    },
+    {
+      "name": "Zero horizontal overflow at 1280px viewport",
+      "pass": true,
+      "details": {
+        "overflow": false
+      }
+    },
+    {
+      "name": "Visible keyboard focus indicator at 1280px",
+      "pass": true,
+      "details": {
+        "activeElementId": "calibrate-btn",
+        "outline": {
+          "outlineStyle": "solid",
+          "outlineWidth": "3px",
+          "outlineColor": "rgb(255, 255, 255)"
+        }
+      }
+    },
+    {
+      "name": "Zero uncaught page errors across all test scenarios",
+      "pass": true,
+      "details": {
+        "totalErrors": 0
+      }
+    }
+  ],
+  "passed": 13,
+  "failed": 0
+}
