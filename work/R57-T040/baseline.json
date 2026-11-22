@@ -1,0 +1,13 @@
+{
+  "task": "R57-T040",
+  "issue": 40,
+  "exercise": "25 - Event Capture, Propagation, Bubbling and Once",
+  "targetFile": "25 - Event Capture, Propagation, Bubbling and Once/index-START.html",
+  "baselineObservations": {
+    "interactiveControls": "Nested divs (.one, .two, .three) are non-focusable divs without tabindex or keydown listeners",
+    "skipLink": "No skip-to-content link present in starter code",
+    "focusIndicators": "No focus-visible styles defined in CSS",
+    "script": "Script tag is empty in starter code"
+  },
+  "timestamp": "2026-11-22T11:53:00Z"
+}
