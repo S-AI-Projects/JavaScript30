@@ -1,0 +1,41 @@
+{
+  "inputs": {
+    "page": "13 - Slide in on Scroll/index-START.html",
+    "failedImageStatus": 404,
+    "restoredFixture": "tests/course/fixtures/landscape.svg",
+    "viewport": "1280x900"
+  },
+  "expected": {
+    "baselineFallback": false,
+    "baselineScrollReveal": false,
+    "changedFallbackVisibleOn404": true,
+    "restoredImageWidth": 400,
+    "scrollRevealOpacity": "1",
+    "scrollAwayOpacity": "0",
+    "uncaughtPageErrors": []
+  },
+  "baseline": {
+    "imageCount": 5,
+    "failedImageHasReadableFallback": false,
+    "scrollHandlerActive": false,
+    "firstImageNaturalWidth": 0
+  },
+  "actual": {
+    "imageCount": 5,
+    "failedImageFallback": {
+      "visible": true,
+      "text": "Image unavailable: A landscape photo sliding in from the left",
+      "width": "400px"
+    },
+    "recoveryRemovedFallback": true,
+    "restoredImageNaturalWidth": 400,
+    "revealOpacity": "1",
+    "hiddenAfterScrollUpOpacity": "0",
+    "uncaughtPageErrors": []
+  },
+  "tools": {
+    "node": "v26.13.0",
+    "playwright": "1.56.1",
+    "chromium": "159.0.8154.6"
+  }
+}
