@@ -6,7 +6,10 @@
   <link rel="icon" href="https://fav.farm/🔥" />
 </head>
 <body>
-  <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+  <main>
+    <p><em>Psst: have a look at the JavaScript Console</em> 💁</p>
+    <p id="comment-result">Loading comment...</p>
+  </main>
   <script>
     // ## Array Cardio Day 2
 
@@ -32,7 +35,17 @@
     // Array.prototype.find()
     // Find is like filter, but instead returns just the one you are looking for
     // find the comment with the ID of 823423
+const fixture = new URLSearchParams(window.location.search).get('fixture');
+const commentsForDisplay = fixture === 'empty' ? [] : comments;
+const comment = commentsForDisplay.find(comment => comment.id === 823423);
 
+const commentResult = document.querySelector('#comment-result');
+
+if (comment) {
+  commentResult.textContent = `Found comment: ${comment.text}`;
+} else {
+  commentResult.textContent = 'No matching comment found.';
+}
     // Array.prototype.findIndex()
     // Find the comment with this ID
     // delete the comment with the ID of 823423
