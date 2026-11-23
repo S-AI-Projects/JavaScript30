@@ -1,0 +1,135 @@
+{
+  "inputs": {
+    "page": "14 - JavaScript References VS Copying/index-START.html",
+    "viewport": "1440x900",
+    "deviceScaleFactor": 1,
+    "locale": "en-US",
+    "fontFixture": "tests/course/fixtures/deterministic.css",
+    "imageFixture": "14 - JavaScript References VS Copying/favicon.svg",
+    "baselineExternalRequest": "fav.farm favicon fulfilled from the local fixture"
+  },
+  "expected": {
+    "players": [
+      "Wes",
+      "Sarah",
+      "Ryan",
+      "Poppy"
+    ],
+    "person": {
+      "name": "Wes Bos",
+      "age": 80
+    },
+    "visibleText": "",
+    "bodyElementChildren": [
+      "SCRIPT"
+    ],
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "fontFamily": "Arial, sans-serif",
+    "faviconRequests": 1,
+    "changedPageFaviconPath": "favicon.svg",
+    "faviconDimensions": {
+      "width": 32,
+      "height": 32
+    },
+    "pageErrors": [],
+    "consoleErrors": [],
+    "identicalFreshContextState": true
+  },
+  "baseline": {
+    "snapshot": {
+      "title": "JS Reference VS Copy",
+      "visibleText": "",
+      "bodyElementChildren": [
+        "SCRIPT"
+      ],
+      "players": [
+        "Wes",
+        "Sarah",
+        "Ryan",
+        "Poppy"
+      ],
+      "person": {
+        "name": "Wes Bos",
+        "age": 80
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "fontFamily": "Arial, sans-serif",
+      "bodyBounds": {
+        "width": 1424,
+        "height": 0,
+        "x": 8,
+        "y": 8
+      },
+      "documentBounds": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    "faviconLoaded": {
+      "width": 32,
+      "height": 32
+    },
+    "pageErrors": [],
+    "consoleErrors": [],
+    "faviconRequests": 1
+  },
+  "actual": {
+    "snapshot": {
+      "title": "JS Reference VS Copy",
+      "visibleText": "",
+      "bodyElementChildren": [
+        "SCRIPT"
+      ],
+      "players": [
+        "Wes",
+        "Sarah",
+        "Ryan",
+        "Poppy"
+      ],
+      "person": {
+        "name": "Wes Bos",
+        "age": 80
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "fontFamily": "Arial, sans-serif",
+      "bodyBounds": {
+        "width": 1424,
+        "height": 0,
+        "x": 8,
+        "y": 8
+      },
+      "documentBounds": {
+        "width": 1440,
+        "height": 900
+      }
+    },
+    "faviconPath": "favicon.svg",
+    "faviconLoaded": {
+      "width": 32,
+      "height": 32
+    },
+    "faviconRequests": 1,
+    "pageErrors": [],
+    "consoleErrors": []
+  },
+  "tools": {
+    "node": "v26.13.0",
+    "playwright": "1.56.1",
+    "chromium": "159.0.8154.6"
+  },
+  "cleanup": {
+    "baselineContextClosed": true,
+    "actualContextClosed": true,
+    "browserClosed": true,
+    "localServerClosed": true
+  }
+}
