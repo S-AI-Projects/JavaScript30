@@ -6,13 +6,28 @@
   <link rel="icon" href="https://fav.farm/🔥" />
 </head>
 <body>
-<canvas id="draw" width="800" height="800"></canvas>
+<canvas id="draw" width="800" height="800" tabindex="0" aria-label="HTML5 Canvas drawing area"></canvas>
 <script>
 </script>
 
 <style>
   html, body {
     margin: 0;
+  }
+
+  #draw {
+    display: block;
+  }
+
+  #draw:focus-visible {
+    outline: 4px solid #000;
+    outline-offset: 4px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #draw {
+      scroll-behavior: auto;
+    }
   }
 </style>
 
