@@ -1,0 +1,65 @@
+{
+  "inputs": {
+    "page": "11 - Custom Video Player/index.html",
+    "media": "stubbed HTMLMediaElement API",
+    "repeatedInitialization": "load scripts.js twice",
+    "repeatedInteractions": "play button twice; video twice; skip twice; each slider twice; progress scrub"
+  },
+  "expected": {
+    "baselinePlayCalls": 0,
+    "baselineSkipWrites": 0,
+    "initializedAfterDuplicateLoad": true,
+    "listenerCountUnchangedAfterDuplicateLoad": true,
+    "playerActionListeners": 15,
+    "playCalls": 2,
+    "pauseCalls": 2,
+    "skipWrites": 2,
+    "volumeWrites": 2,
+    "playbackRateWrites": 2,
+    "progressFlexBasis": "75%",
+    "generatedNodeCountUnchanged": true,
+    "activeTimers": 0,
+    "pageErrors": []
+  },
+  "baseline": {
+    "paused": true,
+    "playCalls": 0,
+    "skipWrites": 0,
+    "eventHandlers": 0,
+    "controlNodes": 6,
+    "pageErrors": []
+  },
+  "actual": {
+    "initialized": "true",
+    "listenerRegistrationsBeforeAndAfterDuplicateLoad": {
+      "before": 15,
+      "after": 15
+    },
+    "mediaEffects": {
+      "playCalls": 2,
+      "pauseCalls": 2,
+      "seekWrites": 4,
+      "volumeWrites": 2,
+      "playbackRateWrites": 2
+    },
+    "generatedControlNodesBeforeAndAfter": {
+      "before": 9,
+      "after": 9
+    },
+    "progressFlexBasis": "75%",
+    "progressFillWidth": 225,
+    "activeTimers": 0,
+    "pageErrors": []
+  },
+  "tools": {
+    "node": "v26.13.0",
+    "playwright": "1.56.1",
+    "chromium": "159.0.8154.6"
+  },
+  "cleanup": {
+    "baselineContextClosed": true,
+    "changedContextClosed": true,
+    "browserClosed": true,
+    "localServerClosed": true
+  }
+}
