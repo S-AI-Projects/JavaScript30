@@ -55,7 +55,28 @@
   </div>
 
 <script>
+  const nav = document.querySelector('#main');
+  const supportsScrollY = typeof window.scrollY === 'number';
 
+  if (supportsScrollY) {
+    const topOfNav = nav.offsetTop;
+
+    function fixNav() {
+      if (window.scrollY >= topOfNav) {
+        document.body.style.paddingTop = nav.offsetHeight + 'px';
+        document.body.classList.add('fixed-nav');
+      } else {
+        document.body.classList.remove('fixed-nav');
+        document.body.style.paddingTop = '0px';
+      }
+    }
+
+    window.addEventListener('scroll', fixNav);
+    fixNav();
+  } else {
+    nav.setAttribute('aria-disabled', 'true');
+    nav.setAttribute('title', 'Sticky navigation is not supported in this browser.');
+  }
 </script>
 
 </body>
