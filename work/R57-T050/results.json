@@ -1,0 +1,146 @@
+{
+  "inputs": {
+    "sourcePage": "23 - Speech Synthesis/index-START.html",
+    "completedReference": "23 - Speech Synthesis/index-FINISHED.html",
+    "viewport": "1280x900",
+    "deterministicVoices": [
+      "Amy English (en-US)",
+      "Brian English (en-GB)",
+      "Claire French (fr-FR)"
+    ],
+    "stubbedNativeFeature": "SpeechSynthesisUtterance and speechSynthesis",
+    "mutation": "speakButton.addEventListener('click', toggle) replaced by a no-op listener in the temporary served fixture"
+  },
+  "expected": {
+    "englishVoices": [
+      "Amy English",
+      "Brian English"
+    ],
+    "defaultText": "Hello! I love JavaScript 👍",
+    "speakButtonAddsUtterance": 1,
+    "stopButtonAddsNoUtterance": true,
+    "stopCallsCancel": true,
+    "brokenSpeakBindingRejected": true,
+    "pageErrors": [],
+    "consoleErrors": []
+  },
+  "baseline": {
+    "starter": {
+      "title": "Speech Synthesis",
+      "heading": "The Voiceinator 5000",
+      "voiceOptions": [
+        {
+          "value": "",
+          "text": "Select A Voice"
+        }
+      ],
+      "defaultText": "Hello! I love JavaScript 👍",
+      "controlValues": {
+        "rate": "1",
+        "pitch": "1"
+      },
+      "layout": {
+        "panel": {
+          "x": 390,
+          "y": 165.5,
+          "width": 500,
+          "height": 569
+        },
+        "speak": {
+          "x": 644.578125,
+          "y": 666.5,
+          "width": 225.390625,
+          "height": 48
+        },
+        "stop": {
+          "x": 410,
+          "y": 666.5,
+          "width": 225.390625,
+          "height": 48
+        }
+      },
+      "fontFamily": "Arial, sans-serif"
+    },
+    "finishedInitial": {
+      "title": "Speech Synthesis",
+      "heading": "The Voiceinator 5000",
+      "voiceOptions": [
+        {
+          "value": "Amy English",
+          "text": "Amy English (en-US)"
+        },
+        {
+          "value": "Brian English",
+          "text": "Brian English (en-GB)"
+        }
+      ],
+      "defaultText": "Hello! I love JavaScript 👍",
+      "controlValues": {
+        "rate": "1",
+        "pitch": "1"
+      },
+      "layout": {
+        "panel": {
+          "x": 390,
+          "y": 165.5,
+          "width": 500,
+          "height": 569
+        },
+        "speak": {
+          "x": 644.578125,
+          "y": 666.5,
+          "width": 225.390625,
+          "height": 48
+        },
+        "stop": {
+          "x": 410,
+          "y": 666.5,
+          "width": 225.390625,
+          "height": 48
+        }
+      },
+      "fontFamily": "Arial, sans-serif"
+    }
+  },
+  "actual": {
+    "afterVoiceSelection": {
+      "selectedVoice": "Amy English",
+      "spokenCount": 1,
+      "cancelCount": 1
+    },
+    "afterSpeak": {
+      "spokenCount": 2,
+      "lastUtterance": {
+        "text": "Hello! I love JavaScript 👍",
+        "rate": 1,
+        "pitch": 1,
+        "voice": "Amy English"
+      }
+    },
+    "afterStop": {
+      "spokenCount": 2,
+      "cancelCount": 3
+    },
+    "mutatedSpeakCount": 0,
+    "mutationFailure": {
+      "name": "AssertionError",
+      "message": "Speak button adds one utterance (the deliberate no-op binding must be rejected)\n\n0 !== 1\n",
+      "expected": 1,
+      "actual": 0
+    },
+    "errors": {
+      "page": [],
+      "console": []
+    }
+  },
+  "tools": {
+    "node": "v26.13.0",
+    "playwright": "1.56.1",
+    "chromium": "159.0.8154.6"
+  },
+  "cleanup": {
+    "contextsClosed": true,
+    "browserClosed": true,
+    "localServerClosed": true
+  }
+}
