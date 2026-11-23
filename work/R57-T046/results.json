@@ -1,0 +1,180 @@
+{
+  "inputs": {
+    "page": "22 - Follow Along Link Highlighter/index-START.html",
+    "viewport": "1280x800",
+    "deviceScaleFactor": 1,
+    "fontFixture": "tests/course/fixtures/deterministic.css",
+    "iconFixture": "tests/course/fixtures/favicon.svg",
+    "unsupportedFeature": "Element.prototype.getBoundingClientRect unavailable"
+  },
+  "expected": {
+    "anchorCount": 19,
+    "baselineHighlightCount": 0,
+    "supportedHighlightCount": 1,
+    "unsupportedFallbackCount": 1,
+    "fallbackText": "Link highlighting is unavailable in this browser. The links remain usable.",
+    "enabledLinks": true,
+    "contextsWithIdenticalSupportedOutput": 2,
+    "pageErrors": [],
+    "consoleErrors": []
+  },
+  "baseline": {
+    "anchorCount": 19,
+    "highlightCount": 0,
+    "fallbackCount": 0,
+    "linkBox": {
+      "x": 341.59375,
+      "y": 100,
+      "width": 52.6875,
+      "height": 28
+    },
+    "fontFamily": "Arial, sans-serif",
+    "viewport": {
+      "width": 1280,
+      "height": 800
+    },
+    "pageText": "Home\nOrder Status\nTweets\nRead Our History\nContact Us\n\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Est explicabo unde natus necessitatibus esse obcaecati distinctio, aut itaque, qui vitae!\n\nAspernatur sapiente quae sint soluta modi, atque praesentium laborum pariatur earum quaerat cupiditate consequuntur facilis ullam dignissimos, aperiam quam veniam.\n\nCum ipsam quod, incidunt sit ex tempore placeat maxime corrupti possimus veritatis ipsum fugit recusandae est doloremque? Hic, quibusdam, nulla.\n\nEsse quibusdam, ad, ducimus cupiditate nulla, quae magni odit totam ut consequatur eveniet sunt quam provident sapiente dicta neque quod.\n\nAliquam dicta sequi culpa fugiat consequuntur pariatur optio ad minima, maxime odio, distinctio magni impedit tempore enim repellendus repudiandae quas!",
+    "faviconRequests": 1,
+    "pageErrors": [],
+    "consoleErrors": []
+  },
+  "actual": {
+    "supportedContexts": [
+      {
+        "snapshot": {
+          "anchorCount": 19,
+          "highlightCount": 1,
+          "fallbackCount": 0,
+          "visibleText": "Home\nOrder Status\nTweets\nRead Our History\nContact Us\n\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Est explicabo unde natus necessitatibus esse obcaecati distinctio, aut itaque, qui vitae!\n\nAspernatur sapiente quae sint soluta modi, atque praesentium laborum pariatur earum quaerat cupiditate consequuntur facilis ullam dignissimos, aperiam quam veniam.\n\nCum ipsam quod, incidunt sit ex tempore placeat maxime corrupti possimus veritatis ipsum fugit recusandae est doloremque? Hic, quibusdam, nulla.\n\nEsse quibusdam, ad, ducimus cupiditate nulla, quae magni odit totam ut consequatur eveniet sunt quam provident sapiente dicta neque quod.\n\nAliquam dicta sequi culpa fugiat consequuntur pariatur optio ad minima, maxime odio, distinctio magni impedit tempore enim repellendus repudiandae quas!",
+          "viewport": {
+            "width": 1280,
+            "height": 800
+          },
+          "fontFamily": "Arial, sans-serif"
+        },
+        "topLayout": {
+          "link": {
+            "x": 342,
+            "y": 100,
+            "width": 53,
+            "height": 28
+          },
+          "highlight": {
+            "x": 342,
+            "y": 100,
+            "width": 53,
+            "height": 28
+          },
+          "inlineWidth": "52.6875px",
+          "inlineHeight": "28px",
+          "transform": [
+            342,
+            100
+          ],
+          "ariaHidden": "true",
+          "position": "absolute"
+        },
+        "scrolledLayout": {
+          "scrollY": 168,
+          "link": {
+            "x": 627,
+            "y": 749,
+            "width": 111,
+            "height": 22
+          },
+          "highlight": {
+            "x": 627,
+            "y": 749,
+            "width": 111,
+            "height": 22
+          },
+          "transform": [
+            627,
+            917
+          ]
+        },
+        "pageErrors": [],
+        "consoleErrors": []
+      },
+      {
+        "snapshot": {
+          "anchorCount": 19,
+          "highlightCount": 1,
+          "fallbackCount": 0,
+          "visibleText": "Home\nOrder Status\nTweets\nRead Our History\nContact Us\n\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Est explicabo unde natus necessitatibus esse obcaecati distinctio, aut itaque, qui vitae!\n\nAspernatur sapiente quae sint soluta modi, atque praesentium laborum pariatur earum quaerat cupiditate consequuntur facilis ullam dignissimos, aperiam quam veniam.\n\nCum ipsam quod, incidunt sit ex tempore placeat maxime corrupti possimus veritatis ipsum fugit recusandae est doloremque? Hic, quibusdam, nulla.\n\nEsse quibusdam, ad, ducimus cupiditate nulla, quae magni odit totam ut consequatur eveniet sunt quam provident sapiente dicta neque quod.\n\nAliquam dicta sequi culpa fugiat consequuntur pariatur optio ad minima, maxime odio, distinctio magni impedit tempore enim repellendus repudiandae quas!",
+          "viewport": {
+            "width": 1280,
+            "height": 800
+          },
+          "fontFamily": "Arial, sans-serif"
+        },
+        "topLayout": {
+          "link": {
+            "x": 342,
+            "y": 100,
+            "width": 53,
+            "height": 28
+          },
+          "highlight": {
+            "x": 342,
+            "y": 100,
+            "width": 53,
+            "height": 28
+          },
+          "inlineWidth": "52.6875px",
+          "inlineHeight": "28px",
+          "transform": [
+            342,
+            100
+          ],
+          "ariaHidden": "true",
+          "position": "absolute"
+        },
+        "scrolledLayout": {
+          "scrollY": 168,
+          "link": {
+            "x": 627,
+            "y": 749,
+            "width": 111,
+            "height": 22
+          },
+          "highlight": {
+            "x": 627,
+            "y": 749,
+            "width": 111,
+            "height": 22
+          },
+          "transform": [
+            627,
+            917
+          ]
+        },
+        "pageErrors": [],
+        "consoleErrors": []
+      }
+    ],
+    "unsupported": {
+      "geometryApiAvailable": false,
+      "highlightCount": 0,
+      "fallbackCount": 1,
+      "fallbackText": "Link highlighting is unavailable in this browser. The links remain usable.",
+      "anchorCount": 19,
+      "linksRemainEnabled": true,
+      "fallbackDisplay": "block",
+      "fallbackLineHeight": "30px",
+      "faviconRequests": 1,
+      "pageErrors": [],
+      "consoleErrors": []
+    }
+  },
+  "tools": {
+    "node": "v26.13.0",
+    "playwright": "1.56.1",
+    "chromium": "159.0.8154.6"
+  },
+  "cleanup": {
+    "contextsClosed": true,
+    "browserClosed": true,
+    "localServerClosed": true
+  }
+}

@@ -45,6 +45,17 @@ a {
   box-shadow: 0 0 10px rgba(0,0,0,0.2);
 }
 
+.highlight-fallback {
+  margin: 0 auto 1rem;
+  max-width: 500px;
+  padding: 0.75rem 1rem;
+  color: #222;
+  background: #fff;
+  border: 2px solid currentColor;
+  border-radius: 8px;
+  line-height: 1.5;
+}
+
 .menu {
   padding: 0;
   display: flex;
