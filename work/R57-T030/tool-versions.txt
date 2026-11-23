@@ -1,0 +1,6 @@
+Node.js:
+v26.13.1
+Playwright:
+1.65.1
+Chromium:
+159.0.8154.6
