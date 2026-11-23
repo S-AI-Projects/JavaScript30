@@ -1,0 +1,225 @@
+{
+  "inputs": {
+    "page": "15 - LocalStorage/index-START.html",
+    "reducedMotion": "reduce",
+    "viewports": [
+      {
+        "name": "desktop",
+        "width": 1280,
+        "height": 800
+      },
+      {
+        "name": "narrow",
+        "width": 320,
+        "height": 700
+      }
+    ],
+    "keyboardSequence": [
+      "Tab: item text field",
+      "Tab: submit button"
+    ],
+    "backgroundFixture": "15 - LocalStorage/oh-la-la.jpeg",
+    "faviconFixture": "tests/course/fixtures/favicon.svg",
+    "fontFixture": "tests/course/fixtures/deterministic.css"
+  },
+  "expected": {
+    "textFieldFocusable": true,
+    "submitFocusable": true,
+    "changedFocusOutline": "3px solid rgb(25, 53, 73)",
+    "changedFocusRing": "rgb(255, 198, 0)",
+    "noMotion": true,
+    "horizontalOverflow": false,
+    "pageErrors": [],
+    "consoleErrors": []
+  },
+  "baseline": {
+    "desktop": {
+      "viewport": "desktop",
+      "fieldFocus": {
+        "outlineStyle": "none",
+        "outlineWidth": "0px",
+        "outlineColor": "rgb(0, 0, 0)",
+        "outlineOffset": "0px",
+        "boxShadow": "none",
+        "bounds": {
+          "left": 511.21875,
+          "right": 678.21875,
+          "top": 560,
+          "bottom": 597,
+          "width": 167,
+          "height": 37
+        }
+      },
+      "submitFocus": {
+        "outlineStyle": "none",
+        "outlineWidth": "0px",
+        "outlineColor": "rgb(0, 0, 0)",
+        "outlineOffset": "0px",
+        "boxShadow": "none",
+        "bounds": {
+          "left": 682.671875,
+          "right": 768.78125,
+          "top": 560,
+          "bottom": 597,
+          "width": 86.109375,
+          "height": 37
+        }
+      },
+      "motion": {
+        "reducedMotion": true,
+        "animatedElements": 0,
+        "horizontalOverflow": false,
+        "wrapper": {
+          "left": 491.21875,
+          "right": 788.78125,
+          "width": 297.5625
+        }
+      }
+    },
+    "narrow": {
+      "viewport": "narrow",
+      "fieldFocus": {
+        "outlineStyle": "none",
+        "outlineWidth": "0px",
+        "outlineColor": "rgb(0, 0, 0)",
+        "outlineOffset": "0px",
+        "boxShadow": "none",
+        "bounds": {
+          "left": 31.21875,
+          "right": 198.21875,
+          "top": 510,
+          "bottom": 547,
+          "width": 167,
+          "height": 37
+        }
+      },
+      "submitFocus": {
+        "outlineStyle": "none",
+        "outlineWidth": "0px",
+        "outlineColor": "rgb(0, 0, 0)",
+        "outlineOffset": "0px",
+        "boxShadow": "none",
+        "bounds": {
+          "left": 202.671875,
+          "right": 288.78125,
+          "top": 510,
+          "bottom": 547,
+          "width": 86.109375,
+          "height": 37
+        }
+      },
+      "motion": {
+        "reducedMotion": true,
+        "animatedElements": 0,
+        "horizontalOverflow": false,
+        "wrapper": {
+          "left": 11.21875,
+          "right": 308.78125,
+          "width": 297.5625
+        }
+      }
+    }
+  },
+  "actual": {
+    "desktop": {
+      "viewport": "desktop",
+      "fieldFocus": {
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(25, 53, 73)",
+        "outlineOffset": "3px",
+        "boxShadow": "rgb(255, 198, 0) 0px 0px 0px 5px",
+        "bounds": {
+          "left": 511.21875,
+          "right": 678.21875,
+          "top": 560,
+          "bottom": 597,
+          "width": 167,
+          "height": 37
+        }
+      },
+      "submitFocus": {
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(25, 53, 73)",
+        "outlineOffset": "3px",
+        "boxShadow": "rgb(255, 198, 0) 0px 0px 0px 5px",
+        "bounds": {
+          "left": 682.671875,
+          "right": 768.78125,
+          "top": 560,
+          "bottom": 597,
+          "width": 86.109375,
+          "height": 37
+        }
+      },
+      "motion": {
+        "reducedMotion": true,
+        "animatedElements": 0,
+        "horizontalOverflow": false,
+        "wrapper": {
+          "left": 491.21875,
+          "right": 788.78125,
+          "width": 297.5625
+        }
+      }
+    },
+    "narrow": {
+      "viewport": "narrow",
+      "fieldFocus": {
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(25, 53, 73)",
+        "outlineOffset": "3px",
+        "boxShadow": "rgb(255, 198, 0) 0px 0px 0px 5px",
+        "bounds": {
+          "left": 31.21875,
+          "right": 198.21875,
+          "top": 510,
+          "bottom": 547,
+          "width": 167,
+          "height": 37
+        }
+      },
+      "submitFocus": {
+        "outlineStyle": "solid",
+        "outlineWidth": "3px",
+        "outlineColor": "rgb(25, 53, 73)",
+        "outlineOffset": "3px",
+        "boxShadow": "rgb(255, 198, 0) 0px 0px 0px 5px",
+        "bounds": {
+          "left": 202.671875,
+          "right": 288.78125,
+          "top": 510,
+          "bottom": 547,
+          "width": 86.109375,
+          "height": 37
+        }
+      },
+      "motion": {
+        "reducedMotion": true,
+        "animatedElements": 0,
+        "horizontalOverflow": false,
+        "wrapper": {
+          "left": 11.21875,
+          "right": 308.78125,
+          "width": 297.5625
+        }
+      }
+    },
+    "errors": {
+      "page": [],
+      "console": []
+    }
+  },
+  "tools": {
+    "node": "v26.13.0",
+    "playwright": "1.56.1",
+    "chromium": "159.0.8154.6"
+  },
+  "cleanup": {
+    "contextsClosed": true,
+    "browserClosed": true,
+    "localServerClosed": true
+  }
+}
