@@ -6,6 +6,15 @@
   <link rel="icon" href="https://fav.farm/🔥" />
 </head>
 <body>
+  <main>
+    <section id="text-rendering-demo" aria-labelledby="text-rendering-title">
+      <h1 id="text-rendering-title">Safe Text Rendering</h1>
+      <label for="text-input">Text to render</label>
+      <input id="text-input" type="text">
+      <button id="render-text" type="button">Render text</button>
+      <p id="text-output" aria-live="polite"></p>
+    </section>
+  </main>
 
   <script>
     // start with strings, numbers and booleans
@@ -42,6 +51,14 @@
       name: 'Wes Bos',
       age: 80
     };
+
+    const textInput = document.querySelector('#text-input');
+    const renderButton = document.querySelector('#render-text');
+    const textOutput = document.querySelector('#text-output');
+
+    renderButton.addEventListener('click', () => {
+      textOutput.textContent = textInput.value;
+    });
 
     // and think we make a copy:
 
