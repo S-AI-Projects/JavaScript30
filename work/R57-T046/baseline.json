@@ -1,0 +1,24 @@
+{
+  "baseline": {
+    "anchorCount": 19,
+    "highlightCount": 0,
+    "fallbackCount": 0,
+    "linkBox": {
+      "x": 341.578125,
+      "y": 100,
+      "width": 52.6875,
+      "height": 28
+    },
+    "pageText": "Home\nOrder Status\nTweets\nRead Our History\nContact Us\n\nLorem ipsum dolor sit amet, consectetur adipisicing elit. Est explicabo unde natus necessitatibus esse obcaecati distinctio, aut itaque, qui vitae!\n\nAspernatur sapiente quae sint soluta modi, atque praesentium laborum pariatur earum quaerat cupiditate consequuntur facilis ullam dignissimos, aperiam quam veniam.\n\nCum ipsam quod, incidunt sit ex tempore placeat maxime corrupti possimus veritatis ipsum fugit recusandae est doloremque? Hic, quibusdam, nulla.\n\nEsse quibusdam, ad, ducimus cupiditate nulla, quae magni odit totam ut consequatur eveniet sunt quam provident sapiente dicta neque quod.\n\nAliquam dicta sequi culpa fugiat consequuntur pariatur optio ad minima, maxime odio, distinctio magni impedit tempore enim repellendus repudiandae quas!",
+    "pageErrors": []
+  },
+  "tools": {
+    "node": "v26.13.0",
+    "playwright": "1.56.1",
+    "chromium": "159.0.8154.6"
+  },
+  "viewport": {
+    "width": 1280,
+    "height": 800
+  }
+}

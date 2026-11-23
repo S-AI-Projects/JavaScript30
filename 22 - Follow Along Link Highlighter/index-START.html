@@ -27,7 +27,37 @@
     </div>
 
   <script>
-    // 👀👀👀👀👀👀👀👀👀👀👀👀👀👀👀
+    const triggers = document.querySelectorAll('a');
+    const canMeasureLinks = typeof Element.prototype.getBoundingClientRect === 'function';
+
+    if (!canMeasureLinks) {
+      const fallback = document.createElement('p');
+      fallback.className = 'highlight-fallback';
+      fallback.setAttribute('role', 'status');
+      fallback.textContent = 'Link highlighting is unavailable in this browser. The links remain usable.';
+      document.querySelector('.wrapper').prepend(fallback);
+    } else {
+      const highlight = document.createElement('span');
+      highlight.classList.add('highlight');
+      highlight.setAttribute('aria-hidden', 'true');
+      document.body.appendChild(highlight);
+
+      function highlightLink() {
+        const linkCoords = this.getBoundingClientRect();
+        const coords = {
+          width: linkCoords.width,
+          height: linkCoords.height,
+          top: linkCoords.top + window.scrollY,
+          left: linkCoords.left + window.scrollX
+        };
+
+        highlight.style.width = `${coords.width}px`;
+        highlight.style.height = `${coords.height}px`;
+        highlight.style.transform = `translate(${coords.left}px, ${coords.top}px)`;
+      }
+
+      triggers.forEach(link => link.addEventListener('mouseenter', highlightLink));
+    }
   </script>
 </body>
 </html>
