@@ -16,6 +16,21 @@ body,html {
   align-items: center;
   justify-content: center;
 }
+@media (max-width: 600px) {
+  .keys {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    padding: 1rem;
+    box-sizing: border-box;
+  }
+
+  .key {
+    width: auto;
+    margin: 0;
+    box-sizing: border-box;
+  }
+}
 
 .key {
   flex: 1;
