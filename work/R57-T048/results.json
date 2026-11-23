@@ -1,0 +1,70 @@
+{
+  "inputs": {
+    "sourcePage": "28 - Video Speed Controller/index-START.html",
+    "companionPage": "28 - Video Speed Controller/text-rendering.html",
+    "viewport": "1280x720",
+    "deviceScaleFactor": 1,
+    "text": "Lesson note: [image](https://github.com/S-AI-Projects/JavaScript30/issues/x) <img src=\"missing-image\" onerror=\"window.__injected = true\">",
+    "backgroundFixture": "tests/course/fixtures/video-controller-background.svg",
+    "fontFixture": "tests/course/fixtures/deterministic.css"
+  },
+  "expected": {
+    "sourceHasVideo": true,
+    "sourceHasTextInput": false,
+    "previewText": "Lesson note: [image](https://github.com/S-AI-Projects/JavaScript30/issues/x) <img src=\"missing-image\" onerror=\"window.__injected = true\">",
+    "injectedElementCount": 0,
+    "injectedHandlerValue": false,
+    "richHtmlContract": "none; preview is plain text",
+    "pageErrors": [],
+    "consoleErrors": []
+  },
+  "baseline": {
+    "videoLesson": {
+      "title": "Video Speed Scrubber",
+      "videoPresent": true,
+      "videoControls": true,
+      "videoDimensions": {
+        "width": 765,
+        "height": 430
+      },
+      "speedTrack": {
+        "width": 65,
+        "height": 410
+      },
+      "speedBarText": "1×",
+      "textInputs": 0,
+      "fontFamily": "Arial, sans-serif"
+    }
+  },
+  "actual": {
+    "companion": {
+      "text": "Lesson note: [image](https://github.com/S-AI-Projects/JavaScript30/issues/x) <img src=\"missing-image\" onerror=\"window.__injected = true\">",
+      "childNodes": [
+        3
+      ],
+      "injectedElements": 0,
+      "relatedElements": 0,
+      "handlerExecuted": false,
+      "computedDisplay": "block",
+      "box": {
+        "width": 768,
+        "height": 74
+      },
+      "outputFont": "Arial, sans-serif"
+    },
+    "errors": {
+      "page": [],
+      "console": []
+    }
+  },
+  "tools": {
+    "node": "v26.13.0",
+    "playwright": "1.56.1",
+    "chromium": "159.0.8154.6"
+  },
+  "cleanup": {
+    "contextClosed": true,
+    "browserClosed": true,
+    "localServerClosed": true
+  }
+}
