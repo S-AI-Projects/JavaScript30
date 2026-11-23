@@ -1,0 +1,121 @@
+{
+  "inputs": {
+    "starterEntry": "03 - CSS Variables/index-START.html",
+    "completedReference": "03 - CSS Variables/index-FINISHED.html",
+    "viewport": "1280x1000",
+    "deviceScaleFactor": 1,
+    "imageFixture": "tests/course/fixtures/css-variables-image.svg",
+    "fontFixture": "tests/course/fixtures/deterministic.css"
+  },
+  "expected": {
+    "controls": [
+      "spacing",
+      "blur",
+      "base"
+    ],
+    "starterHasNoVariableUpdates": true,
+    "interaction": {
+      "spacing": "50px",
+      "blur": "4px",
+      "base": "#336699",
+      "imagePadding": "50px",
+      "imageFilter": "blur(4px)",
+      "headingHighlight": "rgb(51, 102, 153)"
+    },
+    "pageErrors": [],
+    "consoleErrors": []
+  },
+  "baseline": {
+    "starter": {
+      "controls": [
+        {
+          "id": "spacing",
+          "value": "10"
+        },
+        {
+          "id": "blur",
+          "value": "10"
+        },
+        {
+          "id": "base",
+          "value": "#ffc600"
+        }
+      ],
+      "variables": {
+        "--spacing": "",
+        "--blur": "",
+        "--base": ""
+      },
+      "image": {
+        "loaded": true,
+        "padding": "0px",
+        "filter": "none"
+      },
+      "highlightText": "rgb(255, 255, 255)"
+    },
+    "finished": {
+      "controls": [
+        {
+          "id": "spacing",
+          "value": "10"
+        },
+        {
+          "id": "blur",
+          "value": "10"
+        },
+        {
+          "id": "base",
+          "value": "#ffc600"
+        }
+      ],
+      "variables": {
+        "--spacing": "10px",
+        "--blur": "10px",
+        "--base": "#ffc600"
+      },
+      "image": {
+        "loaded": true,
+        "padding": "10px",
+        "background": "rgb(255, 198, 0)",
+        "filter": "blur(10px)"
+      },
+      "highlightText": "rgb(255, 198, 0)",
+      "viewport": {
+        "width": 1280,
+        "height": 1000
+      },
+      "fontFamily": "Arial, sans-serif"
+    }
+  },
+  "actual": {
+    "starterAfterSpacingChange": "",
+    "finished": {
+      "variables": {
+        "--spacing": "50px",
+        "--blur": "4px",
+        "--base": "#336699"
+      },
+      "image": {
+        "padding": "50px",
+        "background": "rgb(51, 102, 153)",
+        "filter": "blur(4px)"
+      },
+      "highlightText": "rgb(51, 102, 153)",
+      "imageLoaded": true
+    },
+    "errors": {
+      "page": [],
+      "console": []
+    }
+  },
+  "tools": {
+    "node": "v26.13.0",
+    "playwright": "1.56.1",
+    "chromium": "159.0.8154.6"
+  },
+  "cleanup": {
+    "contextClosed": true,
+    "browserClosed": true,
+    "localServerClosed": true
+  }
+}
